@@ -27,7 +27,7 @@ Mediante la implementación del aplicativo web a la veterinaria ¿se podrá reno
 ## **Justificación** :mag_right:
 
 El proyecto se enfocará en darle solución a dos problemáticas de la veterinaria “Spa Canino A&D”, sabiendo que:
--Se necesita un aplicativo web que pueda facilitar tanto la venta de productos de la veterinaria como un modo de consulta y compra online hacia los productos que ofrece sin necesidad de acudir a la tienda física para los clientes con mascota desde cualquier parte de la localidad Ciudad Bolívar; así mismo ofreciendo un mejor manejo de información de venta que se registre en la veterinaria por medio del aplicativo web y manejo de inventario de los productos que se registren.
+-Se necesita un aplicativo web que pueda facilitar tanto la venta de productos de la veterinaria como un modo de consulta y compra online hacia los productos que ofrece sin necesidad de acudir a la tienda física para los clientes con mascota desde cualquier parte de la localidad Ciudad Bolívar; así mismo ofreciendo un mejor manejo de información de venta que se registre en la veterinaria por medio del aplicativo web y manejo de inventario de los productos que se registren. y ayudar a "Spa Canino A&D" que se conozcan mas sus productos y que se de a conocer la veterinaria para ayudarla a mejorar sus ventas.
 
 ## **Alcance del proyecto**  :earth_americas:
 
