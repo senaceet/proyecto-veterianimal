@@ -18,7 +18,7 @@ Ofrecer un sistema de información a la veterinaria “Spa canino A&D” que le 
 - Dar información detallada acerca de los productos que se ofrece en la veterinaria “Spa Canino” para el cliente.
 - Dar renovación a modelo de venta mediante el aplicativo web por medio de ventas online.
 - Lucrar más la tienda ofreciendo publicidad de la misma mediante el aplicativo web.
-
+- Desarrollar un aplicativo para crear un inventario de los productos de la tienda.
 ## **Planteamiento del problema** :space_invader:
 
 La veterinaria “Spa Canino A&D” está requiriendo un aplicativo web para poder administrar de una manera mas controlada y sencilla el registro de ventas, manejo de inventario y ofrecer ventas de manera online. Dado de que actualmente no tiene un buen modelo de venta para su veterinaria y no dispone de una buena herramienta informática para poder registrar todas sus ventas e inventario.
