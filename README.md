@@ -9,7 +9,7 @@ Veterianimal :dog:
 
 ## **Objetivo General** :star2:
 
-Ofrecer un sistema de información a la veterinaria “Spa canino A&D” que le permita tener un modelo de venta online y manejo de inventario.
+Ofrecer un sistema de información a la veterinaria “Spa canino A&D” que le permita tener un modelo de venta online y manejo de inventario y que ayuda a que los productos de la veterinaria puedan llegar a mas personas.
 
 ## **Objetivos Específicos** :rocket:
 
