@@ -1,0 +1,2 @@
+Pruebas.PruebaAdicionarInventarioDAO
+Pruebas.J_PruebaAdicionarInventarioDAO

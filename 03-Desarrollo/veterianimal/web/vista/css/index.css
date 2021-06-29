@@ -1,0 +1,302 @@
+body{
+    background: url(../imagenes/fondo4.jpg);
+    background: cover;
+    background-size: cover;
+}
+
+header {
+    width: 100px;
+}
+
+nav {
+    width: 1435px;
+    margin-left: -8px;
+    margin-top: -15px;
+
+}
+
+nav ul{
+    list-style: none ;  
+}
+
+nav > ul {
+    display: table;
+    overflow: hidden;
+    width: 100%;
+    background: #000;
+    position: relative;
+}
+
+nav > ul li{ 
+    display: table-cell;
+}
+
+/*Submenu*/
+
+nav > ul > li:hover > ul{
+    display: block;
+    height: 100%;
+}
+
+nav > ul > li > ul {
+    display: block;
+    position: absolute;
+    background: #000;
+    left:0;
+    right:0;
+    overflow: hidden;
+    height: 0%;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+
+/*menu principal*/
+nav > ul li a {
+    color: #fff;
+    display:block;
+    line-height: 20px;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+/*menu desplegable*/
+nav > ul > li > ul > li a:hover {
+    background: #00286e;
+}
+
+/*para dar animacion*/
+nav > ul > li > a span {
+    background: #1A42BD;
+    display: block;
+    height: 100%;
+    width: 100%;
+    left: -20px;
+    position: absolute; 
+    top: -55px;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+nav > ul > li > a span .icon {
+    display: block;
+    line-height: 60px;
+}
+
+/*transicion inicial*/
+nav > ul > li > a:hover > span {
+    top:0;
+}
+
+/*colores*/
+nav ul li a .primero {
+    background: #007CC0;
+}
+
+nav ul li a .segundo {
+    background: #00286e;
+}
+
+nav ul li a .tercero {
+    background: #1d4c90;
+}
+nav ul li a .cuarto {
+    background: #1E2EB3;
+}
+
+.admin{
+    margin-top: -10px;
+    margin-left: -10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: url(../imagenes/fondo7.jpg) ;
+    background-size: cover;
+    width: 1430px;
+    height: 50px;
+    padding: 5px;
+}
+
+
+.admin a:hover{
+    color: #000000;
+    text-decoration: underline;
+}
+
+.admin p {
+    font-size: 18px;
+    line-height:30px;
+    color:rgb(255, 255, 255);
+    margin-top: 10px;
+    margin-left: 20px;
+    text-shadow: 3px 3px 5px rgb(0, 43, 185);
+}
+
+
+.container{
+  margin: auto;
+  margin-top: 30px ;
+  background-color: transparent;
+  width: 800px;
+  padding: 30px;
+}
+
+ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+ul.slider{
+  position: relative;
+  width: 800px;
+  height: 300px;
+}
+
+ul.slider li {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    transition: opacity .5s;
+    background:#fff;
+}
+
+ul.slider li img{
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+ul.slider li:first-child {
+    opacity: 1; /*Mostramos el primer <li>*/
+}
+
+ul.slider li:target {
+    opacity: 1; /*Mostramos el <li> del enlace que pulsemos*/
+}
+
+.menu{
+  text-align: center;
+  margin: 20px;
+}
+
+.menu li{
+  display: inline-block;
+  text-align: center;
+}
+
+.menu li a{
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  background-color: transparent;
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  border-radius: 100%;
+}
+
+#imag {
+    width: 400px;
+    height: 400px;
+    margin-left: 540px;
+    margin-top: -380px;
+    border-radius:  300px;
+}
+
+.uno{
+  margin-top: 60px;
+  margin-left: 200PX;
+  width: 200px;
+  height: 200px;
+  border: 3px solid;
+  float: left;
+  text-align: center;
+  border-radius: 5px;
+  background: url(../imagenes/fondo4.jpg);
+  background-size: cover;
+}
+
+.uno p{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: aliceblue;
+  text-align: center;
+  margin-top: 120px;
+
+}
+
+.dos{
+  margin-left: 200px;
+}
+
+.verproducto{
+  text-decoration: none;
+  border: 1px solid #016bff;
+  border-radius: 3px;
+  background-color: #0012b6;
+  color: #000;
+  padding: 10px 20px 10px 20px;
+  margin: 35px;
+}
+
+.verproducto:hover{
+  background: rgb(18, 120, 236);
+}
+
+.inicio{
+  margin-top: 40px;
+  margin-left: 200PX;
+  width: 200px;
+  height: 300px;
+  border: 3px solid;
+  float: left;
+  text-align: left;
+  border-radius: 5px;
+  background: url(../imagenes/perro.gif);
+  background-size: cover;
+}
+
+.productos_nuevos p{
+  color: aqua;
+  font-size: 50px;
+  
+  margin-top: 350px;
+  margin-left: 40px;
+}
+
+.producto p{
+  color: black;
+  font-size: 15px;
+  margin-top: 200px;
+  
+}
+
+.verproducto1{
+  text-decoration: none;
+  border: 1px solid #016bff;
+  border-radius: 3px;
+  background-color: #0012b6;
+  color: #000;
+  padding: 10px 20px 10px 20px;
+  margin: 35px;
+}
+
+.verproducto1:hover{
+  background: rgb(18, 120, 236);
+}
+
