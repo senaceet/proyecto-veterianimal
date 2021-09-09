@@ -32,7 +32,7 @@ El proyecto se enfocará en darle solución a dos problemáticas de la veterinar
 El sistema de información Veterianimal se llevará a cabo para ofrecer un mejor proceso ventas de productos veterinarios en la tienda veterinaria “Spa Canino A&D”ubicado Cll 64 n 23 A 10 sur en la localidad Ciudad Bolívar donde se brindará servicio de distribución de productos con el aplicativo web a los clientes que dispongan de una mascota y requieran algun producto ya sea comida o juguetes etc.
 
 ## **Integrantes**
-- Kevin Alejandro Ladino Lopez
+- Kevin Alejandro Ladino López
 - Julian Esteban Cepeda Lopez
 - Luisa Fernanda Mendieta Téllez
 
