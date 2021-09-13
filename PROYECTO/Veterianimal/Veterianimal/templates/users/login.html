@@ -23,15 +23,16 @@
       <h1>Veterianimal</h1>
     </div>
     <div class="login-box">
-      <form id="login" class="login-form" action="#">
+      <form method="POST" class="login-form" action="">
+        {% csrf_token %}
         <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Iniciar Sesión</h3>
         <div class="form-group">
-          <label class="control-label">USUARIO</label>
-          <input id="user" class="form-control" type="text" placeholder="Usuario" autofocus>
+          <label for="username" class="control-label">USUARIO</label>
+          <input name="username" class="form-control" type="text" placeholder="Usuario" autofocus>
         </div>
         <div class="form-group">
-          <label class="control-label">CONTRASEÑA</label>
-          <input id="pass" class="form-control" type="password" placeholder="Contraseña">
+          <label for="password" class="control-label">CONTRASEÑA</label>
+          <input name="password" class="form-control" type="password" placeholder="Contraseña">
         </div>
         <div class="form-group">
           <div class="utility">
@@ -44,7 +45,7 @@
           </div>
         </div>
         <div class="form-group btn-container">
-          <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>Entrar</button>
+          <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>Entrar</button>
 
           <div id="alertSi" class="alert alert-success alert-dismissible fade show" role="alert">Ok! Pronto se iniciara sesión</div>
           <div id="alertNo" class="alert alert-danger alert-dismissible fade show" role="alert">Por favor digita los datos</div>
