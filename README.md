@@ -13,7 +13,7 @@ Ofrecer un sistema de información a la veterinaria “Spa canino A&D” que le 
 ## **Objetivos Específicos** :rocket:
 
 - Desarrollar un aplicativo web para un proceso de ventas
-- Ofrecer una gestión de inventario 
+- Ofrecer una gestión de inventario para conprobar las existencias de dichos productos.
 - Dar información detallada acerca de los productos que se ofrece en la veterinaria “Spa Canino” para el cliente.
 - Dar renovación a modelo de venta mediante el aplicativo web por medio de ventas online.
 - Lucrar más la tienda ofreciendo publicidad de la misma mediante el aplicativo web.
