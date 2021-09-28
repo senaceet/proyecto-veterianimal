@@ -51,7 +51,7 @@
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="{% url 'login' %}" class="flex-c-m trans-04 p-lr-25">
 							Inicio Sesion
 						</a>
 					</div>
@@ -74,7 +74,7 @@
 							</li>
 
 							<li>
-								<a href="product.html">Tienda</a>
+								<a href="{% url 'product' %}">Tienda</a>
 							</li>
 
 							<li>
@@ -183,12 +183,12 @@
 	<!-- subindice -->
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="{% url 'index' %}" class="stext-109 cl8 hov-cl1 trans-04">
 				Inicio
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 
-			<a href="product.html" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="{% url 'product' %}" class="stext-109 cl8 hov-cl1 trans-04">
 				Comida
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
@@ -833,7 +833,7 @@
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="{% url 'index' %}" class="stext-107 cl7 hov-cl1 trans-04">
 								Comida
 							</a>
 						</li>

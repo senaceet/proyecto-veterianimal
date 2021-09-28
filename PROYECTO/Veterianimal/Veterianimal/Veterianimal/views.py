@@ -22,6 +22,11 @@ def product(request):
         
     })
 
+def user(request):
+    return render (request, 'page-user.html', {
+        
+    })
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -42,3 +47,4 @@ def logout(request):
     logout(request)
     messages.success(request, 'Sesión finalizada')
     return redirect('login')
+
