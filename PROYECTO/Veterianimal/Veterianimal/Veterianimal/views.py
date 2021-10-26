@@ -27,6 +27,11 @@ def user(request):
         
     })
 
+def register(request):
+    return render (request, 'users/register.html', {
+        
+    })
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -36,15 +41,16 @@ def login_view(request):
         if user:
             login(request, user)
             messages.success(request, 'Bienvenido {}'.format(user.username))
-            return redirect('index')
+            return redirect('user')
         else: 
             messages.error(request, 'Usuario o contraseña incorrecta')
     return render(request, 'users/login.html',{
 
     })
 
-def logout(request):
+def logout_view(request):
     logout(request)
     messages.success(request, 'Sesión finalizada')
     return redirect('login')
+
 
