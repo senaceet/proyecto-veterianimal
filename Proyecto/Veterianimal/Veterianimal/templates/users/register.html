@@ -1,72 +1,33 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <!--Logo Principal-->
-    <link rel="icon" type="image/png" href="{% static 'imagenes/Veterianimal.png' %}">
+    
     <title>Registrarse</title>
     <!--bootstrap y CSS-->
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    
 </head>
-
 <body>
-<section class="material-half-bg">
-    <div class="cover"></div>
-</section>
-<section class="register-contain">
-    <div class="container" id="registration-form">
-        <div class="logo">
-            <h1>Veterianimal</h1>
-        </div>
-        <div class="image"></div>
-        <div class="frm">
-            <h1>Registrarse</h1>
-            <form>
-                <div class="form-group">
-                    <label for="username">Nombre:</label>
-                    <input type="text" class="form-control" id="username" placeholder="Introduzca Nombre">
-                </div>
-                <div class="form-group">
-                    <label for="email">identificación:</label>
-                    <input type="email" class="form-control" id="email" placeholder="Introduzca un Email">
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Dirección:</label>
-                    <input type="password" class="form-control" id="pwd" placeholder="Introduzca Dirección">
-                </div>
-                 <div class="form-group">
-                    <label for="pwd">Usuario:</label>
-                    <input type="password" class="form-control" id="pwd" placeholder="Introduzca Nombre de Usuario">
-                </div>
-                 <div class="form-group">
-                    <label for="pwd">Contraseña:</label>
-                    <input type="password" class="form-control" id="pwd" placeholder="Introduzca contraseña">
-                </div>
-                <div class="form-group">
-                <div class="utility">
-            <div class="animated-checkbox">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    Acepto terminos y condiciones
-                </label>
-            </div>
-            </div>
-            <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Ya tienes cuenta?</a></p>
-          </div>
-        </div>
-                <div class="form-group btn-container">
-                    <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>Entrar</button>
-                </div>
-                
-            </form>
-        </div>
-    </div>
-</section>
+    <h2>Registro de usuario</h2>
+<form method="POST">
+    {% csrf_token %}
+
+
+    <table >
+        {{ form.as_table }}
+
+
+    </table>
+
+
+
+    <input type="reset" value="Ingresar">
+    <input type="submit" value="Registrar">
+
+</form> 
 
 </body>
 
@@ -75,5 +36,5 @@
     background: url("background.jpg") no-repeat;
 	background-size: cover;
     min-height: 100%;
-}
--->
+}no entiendo entonces ._.
+--> 

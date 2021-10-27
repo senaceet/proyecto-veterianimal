@@ -20,10 +20,10 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('users/register', views.register, name='register'),
     path('users/login', views.login_view, name='login'),
     path('logout', views.logout_view, name='logout'),
     path('product-detail/', views.product_detail, name='detail'),
     path('product/', views.product, name='product'),
-    path('page-user/', views.user, name='user')
+    path('page-user/', views.user, name='user'),
+    path('register/', views.registro_usuario , name='registro')
 ]

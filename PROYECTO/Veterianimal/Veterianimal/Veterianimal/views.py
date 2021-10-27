@@ -5,6 +5,9 @@ from django.contrib.auth import logout
 from django.contrib.auth import authenticate
 from django.shortcuts import redirect
 from django.contrib import messages
+from django.shortcuts import render
+from .forms import CustomUserForm
+from modelos.models import User
 
 
 def index(request):
@@ -54,3 +57,23 @@ def logout_view(request):
     return redirect('login')
 
 
+
+
+def registro_usuario(request):
+    data = {
+            'form':CustomUserForm()
+    }
+
+    if request.method == 'POST':
+        formulario = CustomUserForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            #autenticar al usuario y redirigirlo
+            Username = formulario.cleaned_data['username']
+            password = formulario.cleaned_data['password1']
+            user = authenticate(Username=Username, password=password)
+            login(request, user)
+            return redirect(to='index')
+
+    return render(request,'users/register.html', data) 
+ 
