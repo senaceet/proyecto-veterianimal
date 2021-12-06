@@ -48,9 +48,25 @@
         </div>
         <div class="form-group btn-container">
           <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>Entrar</button>
-
-          <div id="alertSi" class="alert alert-success alert-dismissible fade show" role="alert">Ok! Pronto se iniciara sesión</div>
-          <div id="alertNo" class="alert alert-danger alert-dismissible fade show" role="alert">Por favor digita los datos</div>
+            {% if messages%}
+               {% for message in messages  %}
+                {% if message.tags == 'success' %}
+                     <div id="alertSi" class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                {% else %}
+                      <div id="alertNo" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                {% endif %}
+               {% endfor %}
+            {% endif %}
         </div>
       </form>
       <form id="forget" class="forget-form" action="index.html">
@@ -88,46 +104,7 @@
       return false;
     });
   </script>
-  <script>
-    $(document).ready(function () {
-      $("#alertsi").hide();
-      $("#alertno").hide();
-      $("#forget").submit(function (e) {
-        e.preventDefault();
-        email = $.trim($("#email").val());
-        if (email.length > 0) {
-          $("#alertsi").fadeTo(2000, 500).slideUp(500, function () {
-            $("#alertsi").slideUp(500);
-          });
-        } else {
-          $("#alertno").fadeTo(2000, 500).slideUp(500, function () {
-            $("#alertno").slideUp(500);
-          });
-        }
-      });
-    });
-  </script>
-  <script>
-    $(document).ready(function () {
-      $("#alertSi").hide();
-      $("#alertNo").hide();
-      $("#login").submit(function (e) {
-        e.preventDefault();
-        user = $.trim($("#user").val());
-        pass = $.trim($("#pass").val());
-        if (user.length > 0 && pass.length > 0) {
-          $("#alertSi").fadeTo(2000, 500).slideUp(500, function () {
-            $("#alertSi").slideUp(500);
-          });
-        } else {
-          $("#alertNo").fadeTo(2000, 500).slideUp(500, function () {
-            $("#alertNo").slideUp(500);
-          });
-        }
-      });
-    });
-  </script>
-
+ 
 </body>
 
 </html>

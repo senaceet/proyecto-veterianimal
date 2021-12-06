@@ -1,40 +1,24 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <!--Logo Principal-->
+   
     
-    <title>Registrarse</title>
-    <!--bootstrap y CSS-->
-    
+    <title>registrar</title>
 </head>
 <body>
     <h2>Registro de usuario</h2>
-<form method="POST">
+<form action="" method="POST">
     {% csrf_token %}
-
 
     <table >
         {{ form.as_table }}
-
-
     </table>
 
-
-
-    <input type="reset" value="Ingresar">
+    <input type="reset" value="Limpiar">
     <input type="submit" value="Registrar">
-
 </form> 
 
 </body>
-
 </html>
-<!--html{
-    background: url("background.jpg") no-repeat;
-	background-size: cover;
-    min-height: 100%;
-}no entiendo entonces ._.
---> 

@@ -1,0 +1,4 @@
+{
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "/subscriptions/5f1cd715-eda9-40c7-a4f1-5b156d9d1f9b/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/Veterianimal314"
+}

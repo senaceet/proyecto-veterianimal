@@ -6,8 +6,8 @@ from django.contrib.auth import authenticate
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.shortcuts import render
-from .forms import CustomUserForm
 from modelos.models import User
+
 
 
 def index(request):
@@ -25,13 +25,13 @@ def product(request):
         
     })
 
-def user(request):
-    return render (request, 'page-user.html', {
+def contact():
+    return render(request, 'contact.html', {
         
-    })
+    })    
 
-def register(request):
-    return render (request, 'users/register.html', {
+def user(request):
+    return render (request, 'users/page-user.html', {
         
     })
 
@@ -57,23 +57,3 @@ def logout_view(request):
     return redirect('login')
 
 
-
-
-def registro_usuario(request):
-    data = {
-            'form':CustomUserForm()
-    }
-
-    if request.method == 'POST':
-        formulario = CustomUserForm(request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            #autenticar al usuario y redirigirlo
-            Username = formulario.cleaned_data['username']
-            password = formulario.cleaned_data['password1']
-            user = authenticate(Username=Username, password=password)
-            login(request, user)
-            return redirect(to='index')
-
-    return render(request,'users/register.html', data) 
- 
