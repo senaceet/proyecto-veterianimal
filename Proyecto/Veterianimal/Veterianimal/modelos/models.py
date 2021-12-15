@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-
+from django.contrib.auth.models import User
 from django.db.models.fields import CharField, IntegerField 
 
 
@@ -83,12 +83,13 @@ class UserType (models.Model):
         ordering = ['id']
         
 
-class User (models.Model):
-    names = models.CharField(verbose_name='Nombres', max_length=100)
+class user_web (models.Model):
+    #names = models.CharField(verbose_name='Nombres', max_length=100)
     id_doc = models.IntegerField (verbose_name='Identificación')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     address = models.CharField (verbose_name='Dirección', max_length=50)
-    username = models.CharField (verbose_name='Usuario', max_length=50)
-    password = models.CharField (verbose_name='Contraseña', max_length=100)
+    #username = models.CharField (verbose_name='Usuario', max_length=50)
+    #password = models.CharField (verbose_name='Contraseña', max_length=100)
     documentType = models.ForeignKey (DocumentType, on_delete=models.CASCADE)
     usertype = models.ForeignKey (UserType, on_delete=models.CASCADE)
 

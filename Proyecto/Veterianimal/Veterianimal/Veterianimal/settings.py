@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-@@d#y5dnrz@#@@r9-*-lq$e@#@g3n7vl#c(37vj4s&j26l6t@8
 DEBUG = True
 
 ALLOWED_HOSTS = ['Veterianimal314.azurewebsites.net']
-                    
+            #'Veterianimal314.azurewebsites.net'        
 # Application definition
 
 INSTALLED_APPS = [
@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'Veterianimal.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = db.MYSQL
+DATABASES = db.SQLITE
 
 
 # Password validation

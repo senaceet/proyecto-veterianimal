@@ -25,7 +25,10 @@ urlpatterns = [
     path('logout', views.logout_view, name='logout'),
     path('product-detail/', views.product_detail, name='detail'),
     path('product/', views.product, name='product'),
-    path('contact/', views.contact, name='comtact'),
-    path('page-user/', views.user, name='user'),
-    #path('registro/', views.registro_usuario, name='registro_usuario'),
+    path('contact/', views.contact, name='contact'),
+    path('users/page-user/', views.user, name='user'),
+    path('users/register/', views.registrar_usuario, name='registrar'),
+    path("users/table-history/", views.history_user, name='history_user'),
+    path("shopping-cart/", views.Shopping , name="cart"),
+
 ]

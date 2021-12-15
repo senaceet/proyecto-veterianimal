@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Main CSS-->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+  <!-- Font-icon css-->
+  <link rel="stylesheet" type="text/css"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Registro</title>
+</head>
+
+<body>
+  <section class="material-half-bg">
+    <div class="cover"></div>
+  </section>
+  <section class="login-content">
+    <div class="logo">
+      <h1>Veterianimal</h1>
+    </div>
+    <div class="login-box">
+      <form id="login" class="container" action="#" method="POST">
+        {% csrf_token %}
+        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Registrarme</h3>
+        <div class="form-group">
+          <label class="control-label">NOMBRE</label>
+          <input id="names" class="form-control" type="text" name="name" required placeholder="Nombre" autofocus>
+        </div>
+        <div class="form-group">
+          <label class="control-label">NÚMERO DE DOCUMENTO</label>
+          <input id="numedoc"  class="form-control" name="numdoc" required type="text" placeholder="Número de Documento" autofocus>
+        </div>
+        <div class="form-group">
+          <label class="control-label">DIRECCIÓN</label>
+          <input id="addres"  class="form-control" name="address" required type="text" placeholder="Dirección" autofocus>
+        </div>
+        <div class="form-group">
+          <label class="control-label">CORREO ELECTRICO</label>
+          <input id="EMAIL"  class="form-control" name="email" required type="text" placeholder="Dirección" autofocus>
+        </div>
+        <div class="form-group">
+          <label class="control-label">USERNAME</label>
+          <input id="usuario"  class="form-control" name="usua" required type="text" placeholder="Dirección" autofocus>
+        </div>
+        <div class="form-group">
+          <label class="control-label">CONTRASEÑA</label>
+          <input id="password"  class="form-control" name="pass" required type="text" placeholder="Contraseña" autofocus>
+        </div>
+        <div class="form-group">
+          <label class="control-label">TIPO DE DOCUMENTO</label>
+          <select class="form-select" aria-label="Default select example">
+            <option value=''>Seleccionar</option>
+            {% for t in tipo_documento %}
+            <option value='{{ t.id }}'>{{ t.description }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <div class="utility">
+            <div class="animated-checkbox">
+              <label>
+                <input type="checkbox"><span class="label-text">Estoy de acuerdo con los</span>
+              </label>
+            </div>
+            <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Terminos y condiciones</a></p>
+          </div>
+        </div>
+        <div class="form-group btn-container">
+          <button class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>Entrar</button>
+
+          <div id="alertSi" class="alert alert-success alert-dismissible fade show" role="alert">Ok! Pronto se iniciara sesión</div>
+          <div id="alertNo" class="alert alert-danger alert-dismissible fade show" role="alert">Por favor digita los datos</div>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- Essential javascripts for application to work-->
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <!-- The javascript plugin to display page loading on top-->
+  <script src="{% static 'js/plugins/pace.min.js' %}"></script>
+  <script type="text/javascript">
+    // Login Page Flipbox control
+    $('.login-content [data-toggle="flip"]').click(function () {
+      $('.login-box').toggleClass('flipped');
+      return false;
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#alertsi").hide();
+      $("#alertno").hide();
+      $("#forget").submit(function (e) {
+        e.preventDefault();
+        email = $.trim($("#email").val());
+        if (email.length > 0) {
+          $("#alertsi").fadeTo(2000, 500).slideUp(500, function () {
+            $("#alertsi").slideUp(500);
+          });
+        } else {
+          $("#alertno").fadeTo(2000, 500).slideUp(500, function () {
+            $("#alertno").slideUp(500);
+          });
+        }
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#alertSi").hide();
+      $("#alertNo").hide();
+      $("#login").submit(function (e) {
+        e.preventDefault();
+        user = $.trim($("#user").val());
+        pass = $.trim($("#pass").val());
+        if (user.length > 0 && pass.length > 0) {
+          $("#alertSi").fadeTo(2000, 500).slideUp(500, function () {
+            $("#alertSi").slideUp(500);
+          });
+        } else {
+          $("#alertNo").fadeTo(2000, 500).slideUp(500, function () {
+            $("#alertNo").slideUp(500);
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
