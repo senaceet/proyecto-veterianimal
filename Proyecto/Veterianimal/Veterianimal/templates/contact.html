@@ -45,7 +45,7 @@
 
 					<div class="right-top-bar flex-w h-full">
 
-						<a href="page-login.html" class="flex-c-m trans-04 p-lr-25">
+						<a href="{% url 'login' %}" class="flex-c-m trans-04 p-lr-25">
 							Iniciar Sesión
 						</a>
 
@@ -65,19 +65,23 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li class="active-menu">
-								<a href="index.html">Inicio</a>
+								<a href="{% url 'index' %}">Inicio</a>
 							</li>
 
 							<li>
-								<a href="product.html">Tienda</a>
+								<a href="{% url 'product' %}">Tienda</a>
 							</li>
 
 							<li>
-								<a href="shoping-cart.html">Carrito</a>
+								<a href="{% url 'cart' %}">Carrito</a>
 							</li>
 
 							<li>
-								<a href="contact.html">Contacto</a>
+								<a href="{% url 'contact' %}">Contacto</a>
+							</li>
+
+							<li>
+								<a href="{% url 'registrar' %}">Registrarme</a>
 							</li>
 						</ul>
 					</div>	
@@ -376,12 +380,6 @@
 					</a>
 				</div>
 
-				<p class="stext-107 cl6 txt-center">
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
-				</p>
 			</div>
 		</div>
 	</footer>

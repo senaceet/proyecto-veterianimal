@@ -13,22 +13,30 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from unicodedata import name
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import include
 
+from products.views import ProductListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('users/login', views.login_view, name='login'),
     path('logout', views.logout_view, name='logout'),
-    path('product-detail/', views.product_detail, name='detail'),
-    path('product/', views.product, name='product'),
     path('contact/', views.contact, name='contact'),
+    path('products/product/', ProductListView.as_view(), name='product'),
+    path('users/product_history', views.product_history, name='history_product'),
     path('users/page-user/', views.user, name='user'),
     path('users/register/', views.registrar_usuario, name='registrar'),
-    path("users/table-history/", views.history_user, name='history_user'),
-    path("shopping-cart/", views.Shopping , name="cart"),
+    path('users/table-history/', views.history, name='history_user'),
+    path('shopping-cart/', views.Shopping , name="cart"),
+    path('product-detail/', include('products.urls'))
+]#llaves
 
-]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 

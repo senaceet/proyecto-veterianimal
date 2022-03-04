@@ -21,7 +21,7 @@
   </section>
   <section class="login-content">
     <div class="logo">
-      <h1>Veterianimal</h1>
+      <h1><a href="{% url 'index' %}">Veterianimal</a></h1>
     </div>
     <div class="login-box">
       <form method="POST" class="login-form" action="">
@@ -70,7 +70,6 @@
       </form>
       <form id="forget" class="forget-form" action="index.html">
         <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>Olvidaste tu contraseña?</h3>
-        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-lock"></i>No se ha registrado?</h3>
         <div class="form-group">
           <label class="control-label">CORREO ELECTRONICO</label>
           <input id="email" class="form-control" type="text" placeholder="Correo electronico">
@@ -103,7 +102,45 @@
       return false;
     });
   </script>
- 
+  <script>
+    $(document).ready(function () {
+      $("#alertsi").hide();
+      $("#alertno").hide();
+      $("#forget").submit(function (e) {
+        e.preventDefault();
+        email = $.trim($("#email").val());
+        if (email.length > 0) {
+          $("#alertsi").fadeTo(2000, 500).slideUp(500, function () {
+            $("#alertsi").slideUp(500);
+          });
+        } else {
+          $("#alertno").fadeTo(2000, 500).slideUp(500, function () {
+            $("#alertno").slideUp(500);
+          });
+        }
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#alertSi").hide();
+      $("#alertNo").hide();
+      $("#login").submit(function (e) {
+        e.preventDefault();
+        user = $.trim($("#user").val());
+        pass = $.trim($("#pass").val());
+        if (user.length > 0 && pass.length > 0) {
+          $("#alertSi").fadeTo(2000, 500).slideUp(500, function () {
+            $("#alertSi").slideUp(500);
+          });
+        } else {
+          $("#alertNo").fadeTo(2000, 500).slideUp(500, function () {
+            $("#alertNo").slideUp(500);
+          });
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

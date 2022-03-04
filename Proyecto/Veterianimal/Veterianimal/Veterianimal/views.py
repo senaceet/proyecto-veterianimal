@@ -1,28 +1,17 @@
 from django.http import HttpResponse, request
 from django.shortcuts import render
-from django.contrib.auth import login
 from django.contrib.auth import logout
 from django.contrib.auth import authenticate
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.shortcuts import render
-from modelos.models import DocumentType, User, UserType, user_web
-
+from modelos.models import DocumentType, User, user_web, Inventory
+from products.models import Product
 
 
 def index(request):
     return render(request, 'index.html', {
 
-    })
-
-def product_detail(request):
-    return render(request, 'product-detail.html',{
-
-    })
-
-def product(request):
-    return render(request, 'product.html', {
-        
     })
 
 def contact(request):
@@ -35,38 +24,41 @@ def Shopping(request):
 
     })  
 
-def history_user(request):
-    return render (request, 'users/table-history.html', {
-        
-    })
-
 def user(request):
     return render (request, 'users/page-user.html', {
         
     })
 
+def product_history(request):
+    return render (request, 'users/product.html')
+
+def history(request):
+    
+    Inventario = Inventory.objects.all
+
+    return render (request, 'users/table-history.html', {
+        'Inventario': Inventario,
+    })   
+
 def registrar_usuario(request):
     tipo_de_documento = DocumentType.objects.all()
     if request.method == 'POST':
         usua = user_web()
-        tipo_us = UserType()
         usuario = User()
         tipodoc = DocumentType()
         usuario.first_name = request.POST.get('name')
         usuario.username = request.POST.get('usua')
         usuario.email = request.POST.get('email')
         usuario.password = request.POST.get('pass')
-        usuario.id = usuario.id
-        tipodoc = DocumentType()
-        tipodoc.id = int(request.POST.get('tipodoc'))
-        tipo_us.id = '1'
-        usua.id_doc = request.POST.get('numdoc')
+        usuario.id = usuario.id #Llama y asigna la id del usuario para que no permita los mismos nombres
+        tipodoc.id = request.POST.get('tipodoc')#llama los id del documento
+        usua.id_doc = request.POST.get('numedoc')
+        usua.address = request.POST.get('address')
         usua.documentType = tipodoc
-        usua.usertype = tipo_us
         usua.user = usuario
         usuario.save()
         usua.save()
-        return redirect('index.html')
+        return redirect('index')#Retorna al index por el nombre que le ponemos en la url
 
     return render(request, 'users/page-register.html', {
         'tipo_documento': tipo_de_documento,

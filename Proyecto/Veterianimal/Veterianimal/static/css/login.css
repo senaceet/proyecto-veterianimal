@@ -123,13 +123,13 @@ sup {
 }
 
 a {
-  color: rgb(56, 159, 255);
+  color:rgb(110, 110, 110);
   text-decoration: none;
   background-color: transparent;
 }
 
 a:hover {
-  color: rgba(56, 159, 255, 0.671);
+  color:rgb(54, 115, 173);
   text-decoration: underline;
 }
 
@@ -518,6 +518,8 @@ pre code {
 
 .container {
   width: 100%;
+  padding-top: 10px;
+  padding-bottom: 5px;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
