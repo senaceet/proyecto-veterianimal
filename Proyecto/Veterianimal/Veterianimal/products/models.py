@@ -3,7 +3,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.db.models.signals import pre_save
-from modelos.models import Category, ShopingCart, PaymentMethods, Trademarks
+from Veterianimal import settings
+#from carts.models import ShopingCart
+from modelos.models import Category, Trademarks
 # Create your models here.
 
 class Product(models.Model):
@@ -19,9 +21,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='Veterianimal/static/imagenes', null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey (Category, on_delete=models.CASCADE)
-    shopingcart = models.ForeignKey (ShopingCart, on_delete=models.CASCADE)
-    paymentmethods = models.ForeignKey (PaymentMethods, on_delete=models.CASCADE)
-    user = models.ForeignKey (User, on_delete=models.CASCADE)
+    user = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     trademarks = models.ManyToManyField (Trademarks)
 
     def __str__(self):

@@ -1,12 +1,15 @@
-from django.http import HttpResponse, request
+
 from django.shortcuts import render
 from django.contrib.auth import logout
+from django.contrib.auth import login
 from django.contrib.auth import authenticate
 from django.shortcuts import redirect
 from django.contrib import messages
+from django.contrib.auth import authenticate
+from user.models import User_web
 from django.shortcuts import render
-from modelos.models import DocumentType, User, user_web, Inventory
-from products.models import Product
+from modelos.models import Inventory, DocumentType
+from .forms import RegisterForm
 
 
 def index(request):
@@ -17,12 +20,7 @@ def index(request):
 def contact(request):
     return render(request, 'contact.html', {
         
-    })  
-
-def Shopping(request):
-    return render(request, 'shoping-cart.html', {
-
-    })  
+    })   
 
 def user(request):
     return render (request, 'users/page-user.html', {
@@ -41,40 +39,42 @@ def history(request):
     })   
 
 def registrar_usuario(request):
-    tipo_de_documento = DocumentType.objects.all()
-    if request.method == 'POST':
-        usua = user_web()
-        usuario = User()
-        tipodoc = DocumentType()
-        usuario.first_name = request.POST.get('name')
-        usuario.username = request.POST.get('usua')
-        usuario.email = request.POST.get('email')
-        usuario.password = request.POST.get('pass')
-        usuario.id = usuario.id #Llama y asigna la id del usuario para que no permita los mismos nombres
-        tipodoc.id = request.POST.get('tipodoc')#llama los id del documento
-        usua.id_doc = request.POST.get('numedoc')
-        usua.address = request.POST.get('address')
-        usua.documentType = tipodoc
-        usua.user = usuario
-        usuario.save()
-        usua.save()
-        return redirect('index')#Retorna al index por el nombre que le ponemos en la url
+    form = RegisterForm(request.POST or None)
+  
+    if request.method == 'POST' and form.is_valid():
+       
+
+        user = User_web.objects.create_user(
+            username = form.cleaned_data.get('username'),
+            email = form.cleaned_data.get('email'),
+            name = form.cleaned_data.get('name'),
+            password = form.cleaned_data.get('password'),
+            id_doc = form.cleaned_data.get('id_doc'),
+            address = form.cleaned_data.get('adress')
+            )
+        if user:
+            login(request, user)
+            messages.success(request, 'Usuario Creado existosamente')
+            return redirect('index')
 
     return render(request, 'users/page-register.html', {
-        'tipo_documento': tipo_de_documento,
+        'form' : form,
+    
     })
 
 def login_view(request):
    
-    if request.method == "POST":
-        try:
-            usuario = User.objects.get(username=request.POST.get('username'),
-                                        password=request.POST.get('password'))
-            request.session['username'] = usuario.username
-            messages.success(request, 'Bienvenido {}'.format(usuario.username))
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+        if user:
+            login(request, user)
+            messages.success(request, 'Bienvenido {}'.format(user.username))
             return redirect('user')
-        except User.DoesNotExist as e:
-            messages.error(request, 'Usuario o contraseña incorrecta')
+        else:
+            messages.error(request, 'usuario o contraseña no autenticado')
 
     return render(request, 'users/login.html',{
 

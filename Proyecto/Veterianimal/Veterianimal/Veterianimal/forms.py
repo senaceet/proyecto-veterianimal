@@ -1,67 +1,49 @@
 from django import forms
+from modelos.models import DocumentType
 # from django.forms import widgets
-from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
-import smtplib
+from user.models import User_web
 
-# from modelos.models import User
-
-class UserLoginFrom(forms.Form):
-    email = forms.EmailField(
-        widget=forms.TextInput(
-            attrs={
-                'id': 'LoginEmail',
-                'type': 'email',
-                'class': 'form-control'
-            }
-        )
-    )
-
-    password = forms.CharField(
-        widget=forms.PasswordInput(attrs={
-            'id': 'LoginPassword',
-            'type': 'password',
-            'class': 'form-control',
-        })
-    )
-
-class UsersSignUpForm(forms.Form):
-    email = forms.EmailField(
-        Widget=forms.TextInput(
-            attrs={
-                'id': 'signupEmail',
-                'type': 'email',
-                'class': 'form-control'
-            }
-        )
-    )
-
-    first_name = forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(
-            attrs={
-                'type': 'text',
-                'class': 'form-control'
-            }
-        )
-    )
-
-    last_name = forms.CharField(
-        max_length=100,
-        widget=forms.TextInput(
-            attrs={
-            'type': 'text',
-            'class': 'form-control'
-            }
-        )
-    )
-
-    password = forms.CharField(
-        widget=forms.PasswordInput(
-            attrs={
-                'id': 'LoginPassword',
-                'type': 'password',
-                'class': 'form-control'
-            }
-        )
-    )
+class RegisterForm(forms.Form):
+    username = forms.CharField(required=True, min_length=4, max_length=20,
+                        widget=forms.TextInput(
+                            attrs={
+                                'class':'form-control',
+                                'placeholder':'Username'
+                            }
+                        ) )
+    email =  forms.EmailField(required=True, max_length=150,
+                        widget=forms.EmailInput(
+                            attrs={
+                                'class':'form-control',
+                                'placeholder':'Correo Electronico'
+                            }
+                        ) )
+    password = forms.CharField(required=True, max_length=30, min_length=8,  
+                        widget=forms.TextInput(
+                            attrs={
+                                'class':'form-control',
+                                'placeholder':'Contraseña'
+                            }
+                        ) )
+    id_doc = forms.IntegerField(required=True,
+                 widget=forms.NumberInput(
+                            attrs={
+                                'class':'form-control',
+                                'placeholder':'Número de documento'
+                            }
+                        ) )
+    adress = forms.CharField(required=True, min_length=10, max_length=25,
+                            widget=forms.TextInput(
+                            attrs={
+                                'class':'form-control',
+                                'placeholder':'Dirección de Residencia'
+                            }
+                         ) )
+    name = forms.CharField(required=True, max_length=30, min_length=5, 
+                        widget=forms.TextInput(
+                            attrs={
+                                'class':'form-control',
+                                'placeholder':'Nombre'
+                            }
+                        ) )
+                        

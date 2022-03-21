@@ -5,7 +5,7 @@ from django.contrib import admin
 from .models import Product
 
 class ProductAdmin(admin.ModelAdmin):
-    fields = ('code', 'descrip', 'weight', 'dimensions', 'size','flavor', 'price', 'name', 'image', 'category', 'shopingcart','paymentmethods', 'user', 'trademarks' )
+    fields = ('code', 'descrip', 'weight', 'dimensions', 'size','flavor', 'price', 'name', 'image', 'category', 'user', 'trademarks' )
     list_display =('__str__', 'slug', 'created_at', 'image')  
 
 admin.site.register(Product, ProductAdmin)

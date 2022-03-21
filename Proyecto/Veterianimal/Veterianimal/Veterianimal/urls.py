@@ -34,7 +34,7 @@ urlpatterns = [
     path('users/page-user/', views.user, name='user'),
     path('users/register/', views.registrar_usuario, name='registrar'),
     path('users/table-history/', views.history, name='history_user'),
-    path('shopping-cart/', views.Shopping , name="cart"),
+    path('cart/', include('carts.urls')),
     path('product-detail/', include('products.urls'))
 ]#llaves
 
