@@ -3,6 +3,8 @@ from modelos.models import DocumentType
 # from django.forms import widgets
 from user.models import User_web
 
+
+
 class RegisterForm(forms.Form):
     username = forms.CharField(required=True, min_length=4, max_length=20,
                         widget=forms.TextInput(
@@ -46,4 +48,11 @@ class RegisterForm(forms.Form):
                                 'placeholder':'Nombre'
                             }
                         ) )
-                        
+    document = forms.ModelChoiceField(  
+                        queryset= DocumentType.objects.all(), required=True,
+                        widget= forms.Select(
+                            attrs={
+                                'class': 'form-control'
+                            }
+                            
+                        ))
