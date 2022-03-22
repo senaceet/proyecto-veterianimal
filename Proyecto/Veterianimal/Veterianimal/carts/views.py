@@ -1,17 +1,10 @@
 from django.shortcuts import render
 from .models import Cart
- 
+from .utils import get_or_create_cart 
 # Create your views here.
 def cart(request):
+    cart = get_or_create_cart(request)
 
-    user = request.user if request.user.is_authenticated else None
-    cart_id = request.session.get('cart_id')
+    return render(request, 'shoping-cart.html',{
 
-    if request.session.get('cart_id'):
-        cart = Cart.objects.get(pk=cart_id)
-    else: 
-        cart = Cart.objects.create(user=user)
-    
-    request.session['cart_id'] = cart.id
-
-    return render(request, 'shoping-cart.html')
+    })

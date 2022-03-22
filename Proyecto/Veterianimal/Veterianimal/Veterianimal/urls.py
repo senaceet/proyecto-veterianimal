@@ -21,14 +21,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include
 
-from products.views import ProductListView
+from products.views import ProductListView, IndexListView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
     path('users/login', views.login_view, name='login'),
     path('logout', views.logout_view, name='logout'),
     path('contact/', views.contact, name='contact'),
+    path('', IndexListView.as_view(), name='index'),
     path('products/product/', ProductListView.as_view(), name='product'),
     path('users/product_history', views.product_history, name='history_product'),
     path('users/page-user/', views.user, name='user'),

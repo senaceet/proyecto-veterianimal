@@ -9,6 +9,7 @@ class RegisterForm(forms.Form):
     username = forms.CharField(required=True, min_length=4, max_length=20,
                         widget=forms.TextInput(
                             attrs={
+                                'class':'form-group',
                                 'class':'form-control',
                                 'placeholder':'Username'
                             }
@@ -16,6 +17,7 @@ class RegisterForm(forms.Form):
     email =  forms.EmailField(required=True, max_length=150,
                         widget=forms.EmailInput(
                             attrs={
+                                'class':'form-group', 
                                 'class':'form-control',
                                 'placeholder':'Correo Electronico'
                             }
@@ -23,6 +25,7 @@ class RegisterForm(forms.Form):
     password = forms.CharField(required=True, max_length=30, min_length=8,  
                         widget=forms.TextInput(
                             attrs={
+                                'class':'form-group', 
                                 'class':'form-control',
                                 'placeholder':'Contraseña'
                             }
@@ -30,6 +33,7 @@ class RegisterForm(forms.Form):
     id_doc = forms.IntegerField(required=True,
                  widget=forms.NumberInput(
                             attrs={
+                                'class':'form-group', 
                                 'class':'form-control',
                                 'placeholder':'Número de documento'
                             }
@@ -37,13 +41,15 @@ class RegisterForm(forms.Form):
     adress = forms.CharField(required=True, min_length=10, max_length=25,
                             widget=forms.TextInput(
                             attrs={
+                                'class':'form-group',
                                 'class':'form-control',
-                                'placeholder':'Dirección de Residencia'
+                                'placeholder':'Dirección de Residencia',   
                             }
                          ) )
     name = forms.CharField(required=True, max_length=30, min_length=5, 
                         widget=forms.TextInput(
                             attrs={
+                                'class':'form-group', 
                                 'class':'form-control',
                                 'placeholder':'Nombre'
                             }
@@ -52,7 +58,9 @@ class RegisterForm(forms.Form):
                         queryset= DocumentType.objects.all(), required=True,
                         widget= forms.Select(
                             attrs={
-                                'class': 'form-control'
+                                'class':'form-group',
+                                'class': 'form-control',
+                                 
                             }
                             
                         ))

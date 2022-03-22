@@ -1,50 +1,311 @@
 {% load static %}
-<!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
-        <link rel="icon" type="image/png" href="{% static 'imagenes/Veterianimal.png' %}">
-        <!-- Font-icon css-->
-        <link rel="stylesheet" type="text/css"
-          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-          <title>Inicio</title>
-	      <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-        <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}{% endblock %}</title>
 	
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/slick/slick.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/MagnificPopup/magnific-popup.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
-
-        
+		<link rel="icon" type="image/png" href="{% static 'imagenes/Veterianimal.png' %}">
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+		
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css' %}">
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/slick/slick.css' %}">
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/MagnificPopup/magnific-popup.css' %}">
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}">
+	
+		<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
     </head>
     <body>
         {% include 'navbar.html' %}
 
-         {% block register %}
+         {% block index %}
+         {% endblock  %}
+
+		 {% block product %}
          {% endblock  %}
         
+		 {% block contact %}
+         {% endblock  %}
+ 
+		 {% block cart %}
+         {% endblock  %}
+
+	<!-- Pie de Pagina -->
+	<footer class="bg3 p-t-75 p-b-32">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Categorias
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Comida
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Servicios Veterinarios
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Acessorios
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Ayuda
+					</h4>
+
+					<ul>
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								Orden pedido
+							</a>
+						</li>
+
+						<li class="p-b-10">
+							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+								FAQs
+							</a>
+						</li>
+					</ul>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Sobre Nosotros
+					</h4>
+
+					<p class="stext-107 cl7 size-201">
+						Donde nos encontramos? Facil!! Nuestra direccion esta ubicada en Ciudad Bolivar Calle 64 #23A - 10, Te esperamos!!!
+					</p>
+
+					<div class="p-t-27">
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-pinterest-p"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Tienes Alguna Duda? <br> Contactanos
+					</h4>
+
+					<form>
+						<div class="wrap-input1 w-full p-b-4">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+							<div class="focus-input1 trans-04"></div>
+						</div>
+
+						<div class="p-t-18">
+							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								Enviar
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="p-t-40">
+				<div class="flex-c-m flex-w p-b-18">
+					<a href="#" class="m-all-1">
+						<img src="{% static 'imagenes/icons/icon-pay-01.png' %}" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="{% static 'imagenes/icons/icon-pay-02.png' %}" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="{% static 'imagenes/icons/icon-pay-03.png' %}" alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="{% static 'imagenes/icons/icon-pay-04.png' %}"alt="ICON-PAY">
+					</a>
+
+					<a href="#" class="m-all-1">
+						<img src="{% static 'imagenes/icons/icon-pay-05.png' %}" alt="ICON-PAY">
+					</a>
+				</div>
+
+			</div>
+		</div>
+	</footer>
+
+	<!-- volver al header -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+	<!-- imagenes de vista previa del producto -->
+		<div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
+			<div class="overlay-modal1 js-hide-modal1"></div>
+
+			<div class="container">
+			<div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+				<button class="how-pos3 hov3 trans-04 js-hide-modal1">
+					<img src="{% static 'imagenes/icons/icon-close.png' %}" alt="CLOSE">
+				</button>
+				{% for product in product_list %}
+				<div class="row">
+					<div class="col-md-6 col-lg-7 p-b-30">
+						<div class="p-l-25 p-r-30 p-lr-0-lg">
+							<div class="wrap-slick3 flex-sb flex-w">
+								<div class="wrap-slick3-dots"></div>
+								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+
+								{% if  product.image%}
+								<div class="slick3 gallery-lb">
+								<div class="item-slick3" data-thumb="{{ product.image.url }}">
+									<div class="wrap-pic-w pos-relative">
+										<img src="{{ product.image.url }}" alt="IMG-PRODUCT">
+
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
+											href="{{ product.image.url }}">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+								</div>
+
+								<div class="item-slick3" data-thumb="{{ product.image.url }}">
+									<div class="wrap-pic-w pos-relative">
+										<img src="{{ product.image.url }}" alt="IMG-PRODUCT">
+
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
+											href="{{ product.image.url }}">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+								</div>
+
+								<div class="item-slick3" data-thumb="{{ product.image.url }}">
+									<div class="wrap-pic-w pos-relative">
+										<img src="{{ product.image.url }}" alt="IMG-PRODUCT">
+
+										<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04"
+											href="{{ product.image.url }}">
+											<i class="fa fa-expand"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+							{% endif %}
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-md-6 col-lg-5 p-b-30">
+						<div class="p-r-50 p-t-5 p-lr-0-lg">
+							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+								{{product.name}}
+							</h4>
+
+							<span class="mtext-106 cl2">
+								${{product.price}}
+							</span>
+
+							<p class="stext-102 cl3 p-t-23">
+								{{product.descrip}} 
+							</p>
+							
+							<!--  -->
+							<div class="p-t-33">
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Tamaño
+									</div>
+
+									<div class="size-204 respon6-next">
+										<div class="rs1-select2 bor8 bg0">
+											<select class="js-select2" name="time">
+												<option>Escoge una opcion</option>
+												<option>1 libra</option>
+												<option>5 libras</option>
+												<option>1 kilo</option>
+												<option>1 bulto</option>
+											</select>
+											<div class="dropDownSelect2"></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-204 flex-w flex-m respon6-next">
+										<div class="wrap-num-product flex-w m-r-20 m-tb-10">
+											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-minus"></i>
+											</div>
+
+											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+
+											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-plus"></i>
+											</div>
+										</div>
+
+										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+											Añadir al Carrito
+										</button>
+									</div>
+								</div>	
+							</div>
+
+							<!--  -->
+							<div class="flex-w flex-m p-l-100 p-t-40 respon7">
+								<div class="flex-m bor9 p-r-10 m-r-11">
+									<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Añadir a la lista de deseos">
+										<i class="zmdi zmdi-favorite"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
     </body>
 <!--===============================================================================================-->	
-<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
 <!--===============================================================================================-->
 	<script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
 <!--===============================================================================================-->

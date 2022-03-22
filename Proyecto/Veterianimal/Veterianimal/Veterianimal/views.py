@@ -7,8 +7,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from user.models import User_web
-from django.shortcuts import render
-from modelos.models import Inventory, DocumentType
+from modelos.models import Inventory
 from .forms import RegisterForm
 
 
@@ -42,7 +41,6 @@ def registrar_usuario(request):
     form = RegisterForm(request.POST or None)
   
     if request.method == 'POST' and form.is_valid():
-       
 
         user = User_web.objects.create_user(
             username = form.cleaned_data.get('username'),

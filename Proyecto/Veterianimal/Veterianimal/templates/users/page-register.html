@@ -1,62 +1,43 @@
-<!DOCTYPE html>
-{% extends 'base.html' %}
-
+{% extends 'base_lo.html' %}
+{% load static %}
+{% block title %}Registro{% endblock %}
 {% block register %}
-<head>
-  <title>Registro</title>
-</head>
 <section class="material-half-bg">
-  <div class="cover"></div>
-</section>
-<section class="login-content">
-  <div class="login-box">
-    <form id="login" class="container" action="" method="POST">
-      {% csrf_token %}
-      <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Registrarme</h3>
-      <div class="form-group">
-        <label class="control-label">NOMBRE</label>
-        {{form.name}}
-      </div>
-      <div class="form-group">
-        <label class="control-label">NÚMERO DE DOCUMENTO</label>
-        {{form.id_doc}}
-      </div>
-      <div class="form-group">
-        <label class="control-label">DIRECCIÓN</label>
-        {{form.adress}}
-      </div>
-      <div class="form-group">
-        <label class="control-label">CORREO ELECTRICO</label>
-        {{form.email}}
-      </div>
-      <div class="form-group">
-        <label class="control-label">USERNAME</label>
-        {{form.username}}
-      </div>
-      <div class="form-group">
-        <label class="control-label">CONTRASEÑA</label>
-        {{form.password}}
-      </div>
-      <div class="form-group">
-        <label class="control-label">CONTRASEÑA</label>
-        {{form.document}}
-      </div>
-   
-   
-      <div class="form-group">
-        <div class="utility">
-          <div class="animated-checkbox">
-            <label>
-              <input type="checkbox"><span class="label-text">Estoy de acuerdo con los</span>
-            </label>
+    <div class="cover"></div>
+  </section>
+  <section class="login-content">
+    <div class="logo">
+      <h1>Veterianimal</h1>
+    </div>
+    <div class="login-box">
+      <form class="container" method="POST">
+        {% csrf_token %}
+        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Registrarme</h3>
+        
+        {{form}}
+
+        <div class="form-group">
+          <div class="utility">
+            <div class="animated-checkbox">
+              <label>
+                <input type="checkbox"><span class="label-text">Estoy de acuerdo con los</span>
+              </label>
+            </div>
+            <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Terminos y condiciones</a></p>
           </div>
-          <p class="semibold-text mb-2"><a href="#" data-toggle="flip">Terminos y condiciones</a></p>
         </div>
-      </div>
-      <div class="form-group btn-container">
-        <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>Entrar</button>
-      </div>
-    </form>
-  </div>
-</section>
+        <div class="form-group btn-container">
+          <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in fa-lg fa-fw"></i>Entrar</button>
+
+          <div id="alertSi" class="alert alert-success alert-dismissible fade show" role="alert">Ok! Pronto se iniciara sesión</div>
+          <div id="alertNo" class="alert alert-danger alert-dismissible fade show" role="alert">Por favor digita los datos</div>
+        </div>
+      </form>
+    </div>
+  </section>
 {% endblock  %}
+
+
+
+
+
