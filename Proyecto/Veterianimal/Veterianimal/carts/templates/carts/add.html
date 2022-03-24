@@ -1,0 +1,41 @@
+{% extends 'base_lo.html' %}
+{% block title %}Producto Agregado{% endblock %}
+{% load product_extras %}
+{% block content %}
+{% load cart_extras %}
+
+<section class="login-content">
+    <div class="login-box">
+        <h3 class="login-head">
+            {% if product.image.url %}
+                <img src="{{product.image.url}}" width="300" height="300" alt="imagen del producto">
+            {% endif %}
+        </h3>
+        
+        <div class="form-group">
+            <label class="control-label"><center>{{ quantity | quantity_add_format }} al carrito</center></label>
+        </div>
+
+        <div class="form-group">
+            <a href="{% url 'detail' product.slug %}">
+                <center>{{product.name}}</center>
+            </a>
+        </div>  
+
+        <div class="form-group">
+           <center>{{product.price | price_format }}</center>
+        </div> 
+
+        <div class="form-group">
+            <a href="{% url 'product' %}">
+            <center>Seguir comprando</center>
+            </a>
+         </div> 
+        
+        <button class="btn btn-primary btn-block" ><i class="fa fa-sign-in fa-lg fa-fw"></i>
+            <a href="{% url 'carts:cart' %} ">Ver carrito</a> 
+        </button>
+    </div>
+</div>
+</section>
+{% endblock  %}

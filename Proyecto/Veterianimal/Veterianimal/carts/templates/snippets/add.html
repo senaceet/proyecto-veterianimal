@@ -1,0 +1,35 @@
+<form action="{% url 'carts:add' %}" method="POST">
+  {% csrf_token %}  
+  <input type="hidden" name="product_id" value="{{ product.id }}">
+    <div class="wrap-num-product flex-w m-l-auto m-r-0" id="remove">
+      <button type="button" class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+        <i class="fs-16 zmdi zmdi-minus"></i>
+      </button>
+
+      <input class="mtext-104 cl3 txt-center num-product" type="number" id="quantity" name="quantity" value="1" readonly>
+
+      <button type="button" class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m" id="add">
+        <i class="fs-16 zmdi zmdi-plus"></i>
+      </button>
+    </div>
+
+  
+  <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+		Añadir al carrito
+	</button>
+</form>
+<script>
+  const add = document.getElementById('add')
+  const remove = document.getElementById('remove')
+  const quantity = document.getElementById('quantity')
+
+  add.addEventListener('click', function () {
+    value = parseInt(quantity.value)
+  })
+
+  remove.addEventListener('click', function () {
+    value = parseInt(quantity.value)
+
+  })
+
+</script>

@@ -11,17 +11,14 @@ from modelos.models import Category, Trademarks
 class Product(models.Model):
     code = models.CharField(verbose_name='Código', max_length=50)
     descrip= models.TextField(verbose_name='Descripción', max_length=500)
-    weight= models.CharField(verbose_name='Peso', max_length=50)
-    dimensions = models.CharField(verbose_name='Dimensiones', max_length=100)
-    size= models.CharField(verbose_name='Tamaño', max_length= 100)
-    flavor=models.CharField(verbose_name='Sabor', max_length=100)
+    weight= models.CharField(verbose_name='Peso', max_length=10)
+    flavor=models.CharField(verbose_name='Sabor', max_length=50)
     price = models.DecimalField(verbose_name='Precio', max_digits=10, decimal_places=2)
     name = models.CharField(verbose_name='Nombre', max_length=60)
     slug = models.SlugField(null=False, blank=False, unique=True)
     image = models.ImageField(upload_to='Veterianimal/static/imagenes', null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey (Category, on_delete=models.CASCADE)
-    user = models.ForeignKey (settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     trademarks = models.ManyToManyField (Trademarks)
 
     def __str__(self):

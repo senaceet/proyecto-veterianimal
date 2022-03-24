@@ -1,4 +1,5 @@
 {% load static %}
+{% url 'carts:cart' as cart %}
 <header>
     <!-- Header desktop -->
     <div class="container-menu-desktop">
@@ -23,16 +24,20 @@
                             <a href="{% url 'index' %}">Inicio</a>
                         </li>
 
-                        <li>
+                        <li class="{% if request.path == cart %}active{% endif %}">
                             <a href="{% url 'product' %}">Tienda</a>
                         </li>
 
                         <li>
-                            <a href="{% url 'cart' %}">Carrito</a>
+                            <a href="{{ cart }}"> Mi Carrito</a>
                         </li>
 
                         <li>
                             <a href="{% url 'contact' %}">Contacto</a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'user' %}">Perfil</a>
                         </li>
 
                         <li>
@@ -60,7 +65,7 @@
                         </li>
 
                         <li>
-                            <a href="{% url 'cart' %}">Carrito</a>
+                            <a href="{% url 'carts:cart' %}">Carrito</a>
                         </li>
 
                         <li>
@@ -154,11 +159,11 @@
 					</div>
 
 					<div class="header-cart-buttons flex-w w-full">
-						<a href="{% url 'cart' %}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+						<a href="{% url 'carts:cart' %}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
 							Ver carrito
 						</a>
 
-						<a href="{% url 'cart' %}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+						<a href="{% url 'carts:cart' %}" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
 							Revisar
 						</a>
 					</div>
@@ -166,4 +171,6 @@
 			</div>
 		</div>
 	</div>
+
+    
 </header>

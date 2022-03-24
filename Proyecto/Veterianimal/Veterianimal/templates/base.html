@@ -47,6 +47,9 @@
 		 {% block cart %}
          {% endblock  %}
 
+		 {% block detail %}
+         {% endblock  %}
+
 	<!-- Pie de Pagina -->
 	<footer class="bg3 p-t-75 p-b-32">
 		<div class="container">
@@ -58,7 +61,7 @@
 
 					<ul>
 						<li class="p-b-10">
-							<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+							<a href="{% url 'index' %}" class="stext-107 cl7 hov-cl1 trans-04">
 								Comida
 							</a>
 						</li>
@@ -103,7 +106,11 @@
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
-						Donde nos encontramos? Facil!! Nuestra direccion esta ubicada en Ciudad Bolivar Calle 64 #23A - 10, Te esperamos!!!
+						¿Dónde nos encontramos? ¡Fácil! Nuestra dirección esta ubicada en
+						<b>
+							 Ciudad Bolivar Calle 64 #23A - 10 <br> 
+						</b>
+						¡Aquí te estamos esperando!
 					</p>
 
 					<div class="p-t-27">
@@ -128,7 +135,8 @@
 
 					<form>
 						<div class="wrap-input1 w-full p-b-4">
-							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email" placeholder="email@example.com">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="email"
+								placeholder="email@example.com">
 							<div class="focus-input1 trans-04"></div>
 						</div>
 
@@ -156,7 +164,7 @@
 					</a>
 
 					<a href="#" class="m-all-1">
-						<img src="{% static 'imagenes/icons/icon-pay-04.png' %}"alt="ICON-PAY">
+						<img src="{% static 'imagenes/icons/icon-pay-04.png' %}" alt="ICON-PAY">
 					</a>
 
 					<a href="#" class="m-all-1">
@@ -167,6 +175,7 @@
 			</div>
 		</div>
 	</footer>
+
 
 	<!-- volver al header -->
 	<div class="btn-back-to-top" id="myBtn">

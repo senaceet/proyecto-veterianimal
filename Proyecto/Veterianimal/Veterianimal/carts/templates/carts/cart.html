@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Carrito{% endblock %}
+{% load product_extras %}
 {% block cart %}
 	<!-- subindice -->
 	<div class="container">
@@ -22,69 +23,50 @@
 	</div>
 
 	<!-- Shoping Cart -->
-	<form class="bg0 p-t-75 p-b-85">
+	<main class="bg0 p-t-75 p-b-85">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
 					<div class="m-l-25 m-r--38 m-lr-0-xl">
 						<div class="wrap-table-shopping-cart">
+						{% if cart.products.exists %}
 							<table class="table-shopping-cart">
 								<tr class="table_head">
 									<th class="column-1">Producto</th>
 									<th class="column-2"></th>
 									<th class="column-3">Precio</th>
-									<th class="column-4">Cantidad</th>
-									<th class="column-5">Total</th>
+									<th class="column-4"><center>Cantidad</center></th>
+									<th class="column-5"><center>Total</center></th>
 								</tr>
 								<!--Primer producto-->
-								<tr class="table_row">
-									<td class="column-1">
+							{% for cp in cart.products_related %}
+								{% with product=cp.product %}
+									<tr class="table_row">
+										<td class="column-1">
+											{% if product.image %}
 										<div class="how-itemcart1">
-											<img src="{% static  'imagenes/producto.jpg' %}" alt="IMG">
+											<img src="{{ product.image.url }}" alt="IMG">
 										</div>
-									</td>
-									<td class="column-2">Comida Can</td>
-									<td class="column-3">$ 36.000</td>
-									<td class="column-4">
-										<div class="wrap-num-product flex-w m-l-auto m-r-0">
-											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-minus"></i>
-											</div>
-
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" value="1">
-
-											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-plus"></i>
-											</div>
-										</div>
-									</td>
-									<td class="column-5">$ 36.000</td>
-								</tr>
-								<!--Segundo producto-->
-								<tr class="table_row">
-									<td class="column-1">
-										<div class="how-itemcart1">
-											<img src="{% static  'imagenes/producto.jpg' %}" alt="IMG">
-										</div>
-									</td>
-									<td class="column-2">Comida can</td>
-									<td class="column-3">$ 16.000</td>
-									<td class="column-4">
-										<div class="wrap-num-product flex-w m-l-auto m-r-0">
-											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-minus"></i>
-											</div>
-
-											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product2" value="1">
-
-											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-												<i class="fs-16 zmdi zmdi-plus"></i>
-											</div>
-										</div>
-									</td>
-									<td class="column-5">$ 16.000</td>
-								</tr>
+											{% endif %}
+										</td>
+										<td class="column-2"><a href="{% url 'detail' product.slug %}" style="padding: 13px;"> {{product.name}} </a>
+										{% include 'snippets/remove.html' %}
+										</td>
+										<td class="column-3">{{ product.price | price_format }}</td>
+										<td class="column-4"> <center>{{ cp.quantity }}</center>
+										
+										</td>
+										<td class="column-5">{{ product.price | price_format }}</td>
+									</tr>
+								{% endwith %}
+							{% endfor %}
 							</table>
+							{% else %}
+							<div class="col">
+								<p class="h3">Tu carrito de compras está vacio.</p>
+								<a href="{% url 'product'%}">Seguir comprando</a>
+							</div>
+						{% endif %}
 						</div>
 
 						<div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
@@ -103,6 +85,7 @@
 					</div>
 				</div>
 
+				
 				<div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50">
 					<div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
 						<h4 class="mtext-109 cl2 p-b-30">
@@ -112,13 +95,13 @@
 						<div class="flex-w flex-t bor12 p-b-13">
 							<div class="size-208">
 								<span class="stext-110 cl2">
-									Subtotal:
+									Subtotal: ({{ cart.products.count }})
 								</span>
 							</div>
 
 							<div class="size-209">
 								<span class="mtext-110 cl2">
-									$79.650
+									{{ cart.subtotal | price_format}}
 								</span>
 							</div>
 						</div>
@@ -194,7 +177,7 @@
 				</div>
 			</div>
 		</div>
-	</form>
+	</main>
 {% endblock  %}
 
 		

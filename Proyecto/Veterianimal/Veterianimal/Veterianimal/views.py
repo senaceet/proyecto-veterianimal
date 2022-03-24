@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import login_required
 from user.models import User_web
 from modelos.models import Inventory
 from .forms import RegisterForm
@@ -20,7 +21,7 @@ def contact(request):
     return render(request, 'contact.html', {
         
     })   
-
+@login_required(login_url='login')
 def user(request):
     return render (request, 'users/page-user.html', {
         
