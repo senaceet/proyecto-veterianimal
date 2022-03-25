@@ -17,19 +17,6 @@ class Inventory(models.Model):
         db_table = 'Inventario'
         ordering = ['id']
 
-class Category (models.Model):
-    description = models.TextField (verbose_name='Descripción')
-    creat_at = models.DateField(auto_now_add=True)
-    
-    def __str__(self):
-        return self.description
-
-    class Meta:
-        verbose_name = 'Categoría'
-        verbose_name_plural = 'Categorías'
-        db_table = 'Categoria'
-        ordering = ['id']
-
 class PaymentMethods (models.Model):
     description = models.TextField(verbose_name='Descripción')
 

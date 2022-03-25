@@ -5,7 +5,7 @@ from django.utils.text import slugify
 from django.db.models.signals import pre_save
 from Veterianimal import settings
 #from carts.models import ShopingCart
-from modelos.models import Category, Trademarks
+from modelos.models import Trademarks
 # Create your models here.
 
 class Product(models.Model):
@@ -18,7 +18,6 @@ class Product(models.Model):
     slug = models.SlugField(null=False, blank=False, unique=True)
     image = models.ImageField(upload_to='Veterianimal/static/imagenes', null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    category = models.ForeignKey (Category, on_delete=models.CASCADE)
     trademarks = models.ManyToManyField (Trademarks)
 
     def __str__(self):

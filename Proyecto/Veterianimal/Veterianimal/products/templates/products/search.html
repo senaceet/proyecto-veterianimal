@@ -9,7 +9,7 @@
 	</div>
     <div class="block1-txt-child1 flex-col-1">
         <span class="block1-name ltext-102 trans-04 p-b-8">
-            <center><p>Resultados para: {{ query }}</p></center>
+            <center><p>Resultados para: {{ query }} ({{ count }})</p></center>
         </span>
         
     </div>
@@ -17,9 +17,9 @@
 		<!-- Buscar Producto -->
 
 		<div class="row isotope-grid">
-			
-			{% for product in product_list %}
-				{% include 'products/snippets/product.html' with query=query %}
+
+			{% for object in product_list %}
+				{% include 'products/snippets/product.html' with product=object %}
 			{% endfor %}
 		</div>
 	</div>
