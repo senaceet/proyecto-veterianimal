@@ -1,4 +1,6 @@
 
+from re import template
+from unicodedata import name
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from .models import Product
@@ -27,8 +29,6 @@ class IndexListView(ListView):
         print(context)
 
         return context
-    
-
 
 class ProducDetailView(DetailView):
     model = Product
@@ -40,3 +40,19 @@ class ProducDetailView(DetailView):
           print(context)
 
           return context
+
+class ProductSearchListView(ListView):
+    template_name = 'products/search.html'
+
+    def get_queryset(self):
+        return Product.objects.filter(name=self.query())
+
+    def query(self):
+         return self.request.GET.get('q')  
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        
+        context['query'] = self.query()
+
+        return context     

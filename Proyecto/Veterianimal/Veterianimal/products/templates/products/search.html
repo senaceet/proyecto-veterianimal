@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Producto{% endblock  %}
+
+{% block content %}
+<div class="sec-banner bg0 p-t-80 p-b-50">
+	<div class="container">
+		
+	</div>
+    <div class="block1-txt-child1 flex-col-1">
+        <span class="block1-name ltext-102 trans-04 p-b-8">
+            <center><p>Resultados para: {{ query }}</p></center>
+        </span>
+        
+    </div>
+	<div>
+		<!-- Buscar Producto -->
+
+		<div class="row isotope-grid">
+			
+			{% for product in product_list %}
+				{% include 'products/snippets/product.html' with query=query %}
+			{% endfor %}
+		</div>
+	</div>
+</div>
+
+{% endblock  %}
