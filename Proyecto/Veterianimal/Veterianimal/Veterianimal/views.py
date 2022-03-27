@@ -28,7 +28,7 @@ def product_history(request):
     return render (request, 'users/product.html')
 
 def registrar_usuario(request):
-    form = RegisterForm(request.POST or None)
+    form = RegisterForm(request.POST or None, request.FILES )
   
     if request.method == 'POST' and form.is_valid():
 
@@ -39,7 +39,8 @@ def registrar_usuario(request):
             password = form.cleaned_data.get('password'),
             id_doc = form.cleaned_data.get('id_doc'),
             address = form.cleaned_data.get('adress'),
-            documentType = form.cleaned_data.get('document')
+            documentType = form.cleaned_data.get('document'),
+            image = form.cleaned_data.get('image')
             )
         if user:
             login(request, user)

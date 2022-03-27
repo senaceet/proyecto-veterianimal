@@ -2,6 +2,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.shortcuts import render
 from .models import Product
+from categories.models import Category
 from django.db.models import Q
 
 # Create your views here.
@@ -39,6 +40,7 @@ class ProducDetailView(DetailView):
 
 
 class ProductSearchListView(ListView):
+
     template_name = 'products/search.html'
 
     def get_queryset(self):
@@ -54,3 +56,48 @@ class ProductSearchListView(ListView):
         context['count'] = context['product_list'].count()
 
         return context     
+
+class ProductcomidaListView(ListView):
+    
+    template_name = 'products/product_com.html'
+
+    def get_queryset(self):
+        filter = Q(category__title__icontains="Comida")
+        return Product.objects.filter(filter)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        context['products'] = context['product_list']
+        context['count'] = context['product_list'].count()
+
+        return context 
+
+class ProductServListView(ListView):
+    
+    template_name = 'products/product_ser.html'
+
+    def get_queryset(self):
+        filter = Q(category__title__icontains="Servicio")
+        return Product.objects.filter(filter)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        context['products'] = context['product_list']
+        context['count'] = context['product_list'].count()
+
+        return context         
+
+class ProductAcceListView(ListView):
+    
+    template_name = 'products/product_acce.html'
+
+    def get_queryset(self):
+        filter = Q(category__title__icontains="Accesorios")
+        return Product.objects.filter(filter)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs) 
+        context['products'] = context['product_list']
+        context['count'] = context['product_list'].count()
+
+        return context         

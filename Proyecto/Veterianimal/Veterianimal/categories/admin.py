@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import Category
 
 class CategoryAdmin(admin.ModelAdmin):
-    fields = ('title', 'description', 'products' )
+    fields = ('title', 'description' )
     list_display =('__str__', 'create_at')  
 
 admin.site.register(Category, CategoryAdmin)

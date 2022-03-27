@@ -72,7 +72,7 @@
 						<div class="wrap-slick3 flex-sb flex-w">
 							<div class="wrap-slick3-dots"></div>
 							<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
-							{% if  product.image%}
+							{% if product.image%}
 							<div class="slick3 gallery-lb">
 								<div class="item-slick3" data-thumb="{{ product.image.url }}">
 									<div class="wrap-pic-w pos-relative">
@@ -223,7 +223,7 @@
 			</span>
 
 			<span class="stext-107 cl6 p-lr-25">
-				Categoria: Comida
+				Categoria: {{product.category}}
 			</span>
 		</div>
 	</section>
