@@ -55,7 +55,7 @@ class RegisterForm(forms.Form):
                             }
                         ) )
     document = forms.ModelChoiceField(  
-                        queryset= DocumentType.objects.all(), required=True,
+                        queryset= DocumentType.objects.all(), 
                         widget= forms.Select(
                             attrs={
                                 'class':'form-group',
@@ -64,3 +64,5 @@ class RegisterForm(forms.Form):
                             }
                             
                         ))
+    image = forms.ImageField(required=False)
+

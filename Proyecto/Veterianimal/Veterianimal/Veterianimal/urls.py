@@ -20,7 +20,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include
-
+from rating.views import rating
 from products.views import ProductListView, IndexListView
 
 
@@ -30,11 +30,11 @@ urlpatterns = [
     path('logout', views.logout_view, name='logout'),
     path('contact/', views.contact, name='contact'),
     path('', IndexListView.as_view(), name='index'),
+    path('users/rating/', rating, name='rating'),
     path('products/product/', ProductListView.as_view(), name='product'),
     path('users/product_history', views.product_history, name='history_product'),
     path('users/page-user/', views.user, name='user'),
     path('users/register/', views.registrar_usuario, name='registrar'),
-    path('users/table-history/', views.history, name='history_user'),
     path('cart/', include('carts.urls')),
     path('product-detail/', include('products.urls'))
 ]#llaves

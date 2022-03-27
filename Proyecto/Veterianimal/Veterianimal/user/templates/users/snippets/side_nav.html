@@ -1,0 +1,28 @@
+{% load static %}
+
+<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="{{ user.image.url }}"  height="70" width="70" alt="User Image">
+        <div>
+          <p class="app-sidebar__user-name">{{user.username}}</p>
+          <p class="app-sidebar__user-designation">¡Bienvenido!</p>
+        </div>
+      </div>
+      <ul class="app-menu">
+        <li ><a class="app-menu__item" href="{% url 'index' %}"><i class="app-menu__icon fa fa-home"></i><span class="app-menu__label">Página de Inicio</span></a>
+        </li>
+        <li ><a class="app-menu__item" href="{% url 'carts:cart' %}"><i class="app-menu__icon fa fa-cart-plus" ></i><span class="app-menu__label">Mi carrito</span></a>
+        </li>
+        <li ><a class="app-menu__item" href="{% url 'product' %}"><i class="app-menu__icon fa fa-shopping-bag" ></i><span class="app-menu__label">Tienda</span></a>
+        </li>
+        </li>
+        <li ><a class="app-menu__item" href="{% url 'rating' %}"><i class="app-menu__icon fa fa-check" ></i><span class="app-menu__label">Mis Reseñas</span></a>
+        </li>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Mas opciones</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="table-basic.html"><i class="icon fa fa-circle-o"></i> Notificaciones </a> </li>
+            <li><a class="treeview-item" href="#"><i class="icon fa fa-circle-o"></i> Historial </a></li>
+
+          </ul>
+        </li>
+    </ul>

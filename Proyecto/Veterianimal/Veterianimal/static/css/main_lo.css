@@ -308,6 +308,7 @@ input[type="month"] {
 textarea {
   overflow: auto;
   resize: vertical;
+  margin-left: 80px;
 }
 
 fieldset {
@@ -2618,6 +2619,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
+  margin-top: 15px;
   color: #FFF;
   background-color:  rgb(56, 159, 255);
   border-color: rgb(0, 151, 252);

@@ -1,0 +1,12 @@
+<div class="profile">
+    {% if user.is_authenticated %}
+    <div class="info">
+        {% if  user.image%}
+      <img class="user-img" src="{{user.image.url}}">
+        {%endif%}
+      <h4>{{ user.username }}</h4>
+      <p>Bienvenido a Veterianimal</p>
+    </div>
+    {% endif %}
+    <div class="cover-image"></div>
+</div>

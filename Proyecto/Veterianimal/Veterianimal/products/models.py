@@ -1,3 +1,4 @@
+
 import uuid
 from django.db import models
 from django.contrib.auth.models import User
@@ -10,6 +11,7 @@ from modelos.models import Trademarks
 
 class Product(models.Model):
     code = models.CharField(verbose_name='Código', max_length=50)
+    stock = models.IntegerField(default=0, verbose_name='Stock')
     descrip= models.TextField(verbose_name='Descripción', max_length=500)
     weight= models.CharField(verbose_name='Peso', max_length=10)
     flavor=models.CharField(verbose_name='Sabor', max_length=50)

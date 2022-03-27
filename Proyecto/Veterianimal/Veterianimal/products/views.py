@@ -1,10 +1,6 @@
-
-from re import template
-from unicodedata import name
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
-
-from categories.models import Category
+from django.shortcuts import render
 from .models import Product
 from django.db.models import Q
 

@@ -8,7 +8,6 @@ from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.decorators import login_required
 from user.models import User_web
-from modelos.models import Inventory
 from .forms import RegisterForm
 
 
@@ -23,20 +22,10 @@ def contact(request):
     })   
 @login_required(login_url='login')
 def user(request):
-    return render (request, 'users/page-user.html', {
-        
-    })
+    return render (request, 'users/page-user.html')
 
 def product_history(request):
     return render (request, 'users/product.html')
-
-def history(request):
-    
-    Inventario = Inventory.objects.all
-
-    return render (request, 'users/table-history.html', {
-        'Inventario': Inventario,
-    })   
 
 def registrar_usuario(request):
     form = RegisterForm(request.POST or None)

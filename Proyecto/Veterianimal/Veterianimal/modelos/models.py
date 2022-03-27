@@ -3,20 +3,6 @@ from datetime import datetime
 from django.db.models.fields import CharField, IntegerField 
 
 
-class Inventory(models.Model):
-    amount = models.PositiveIntegerField(verbose_name='Cantidad')
-    total = models.IntegerField(verbose_name='Total')
-    products = CharField(verbose_name='productos', max_length=80)
-
-    def __str__(self):
-        return self.products
-
-    class Meta:
-        verbose_name = 'Inventario'
-        verbose_name_plural = 'Inventarios'
-        db_table = 'Inventario'
-        ordering = ['id']
-
 class PaymentMethods (models.Model):
     description = models.TextField(verbose_name='Descripción')
 
