@@ -1,0 +1,70 @@
+{% extends 'base_lo.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+            <a href="{% url 'orders:order' %}" class="stext-109 cl8 hov-cl1 trans-04">
+                Productos
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+
+            <a href="{% url 'orders:address' %}" class="stext-109 cl8 hov-cl1 trans-04">
+                Dirección
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+
+            <a class="stext-109 cl8 hov-cl1 trans-04">
+                Pago
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+            
+            <a class="stext-109 cl8 hov-cl1 trans-04">
+                Confirmación
+            </a>
+
+        </div>
+    </div>
+    <div class='col'>
+        {% if shipping_address %}
+            <section class="address-content">
+                <div class="content-address">
+                    <form>
+                        
+                        <div class="form-group">
+                            <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Verifica tu dirección</h3>
+                            <div class="h3">
+                                Recoge tu pedido en el punto de entrega
+                            </div>
+                        </div>
+                        <div class="form-group btn-container">
+                           {% include 'shipping_addresses/snippets/shipping_address.html' %}
+                           {% if can_choose_address %}
+                            <a href="{% url 'orders:select_address' %}">Elige una dirección</a>
+                           {% endif %}
+
+                        </div>
+                    </form>
+                </div>
+            </section>
+        {% else %}         
+        <section class="address-content">
+            <div class="content-address">
+                <form>
+                    
+                    <div class="form-group">
+                        <h3 class="login-head"><i class="fa fa-lg fa-fw fa-user"></i>Advertencia</h3>
+                        <div class="label">
+                           Registra una nueva dirección
+                        </div>
+                    </div>
+                    <div class="form-group btn-container">
+                        {% url 'orders:address' as next_url %}
+                        <a href="{% url 'shipping_addresses:create' %}?next={{ next_url }}" class="btn btn-primary btn-block2">Nueva Dirección de envío</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+        {% endif %}
+    </div>
+    
+{% endblock  %}

@@ -1,0 +1,52 @@
+{% extends 'base_lo.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+            <a href="{% url 'orders:order' %}" class="stext-109 cl8 hov-cl1 trans-04">
+                Productos
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+
+            <a href="{% url 'orders:address' %}" class="stext-109 cl8 hov-cl1 trans-04">
+                Dirección
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+
+            <a class="stext-109 cl8 hov-cl1 trans-04">
+                Pago
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+            
+            <a class="stext-109 cl8 hov-cl1 trans-04">
+                Confirmación
+            </a>
+
+        </div>
+    </div>
+
+    <section class="bg0 p-t-23 p-b-140 mt-5">
+        <div class="container">
+            <div class="p-b-10">
+                <h3 class="ltext-103 cl5 mt-5">
+                    Selecciona una direccíon de envío
+                </h3>
+            </div>
+            <div class="mt-2">
+                {% for shipping_address in shipping_addresses %}
+                    <div class="card mb-2">
+                       <div class="card-body">
+                            <h5 class="card-title"> {{ shipping_address.address }} </h5>
+                            <p class="card-title">{{ shipping_address.line1 }} - {{ shipping_address.line1 }} </p>
+                            <a href="{% url 'orders:check_address' shipping_address.pk %}" class="btn btn-warning">
+                                Seleccionar 
+                            </a>
+                       </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+{% endblock  %}

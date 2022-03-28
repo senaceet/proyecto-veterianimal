@@ -10,10 +10,7 @@
     </div>
     <div class="login-box">
         {% csrf_token %}
-        
         {% include 'shipping_addresses/snippets/form.html' with message='Crear' %}
-
-     
     </div>
   </section>
 {% endblock  %}

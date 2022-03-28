@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'modelos',
     'products',
     'orders',
+    'billing_profiles',
     'shipping_addresses',
     'categories',
     'user',

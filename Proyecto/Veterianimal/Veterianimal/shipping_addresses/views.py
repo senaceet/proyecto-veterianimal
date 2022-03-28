@@ -1,3 +1,6 @@
+import imp
+from django.http import HttpResponseRedirect
+from wsgiref.util import request_uri
 from django.shortcuts import redirect
 from django.contrib import messages 
 from django.shortcuts import render
@@ -16,6 +19,8 @@ from django.views.generic.edit import DeleteView
 
 from .models import ShippingAddress
 from .forms import ShippingAddressForm
+from carts.utils import get_or_create_cart
+from orders.utils import get_or_create_order
 # Create your views here.
 class ShippingAddressListView(LoginRequiredMixin, ListView):
     login_url = 'login'
@@ -50,9 +55,14 @@ class ShippingAddressDeleteview(LoginRequiredMixin, DeleteView):
         if self.get_object().default:
             return redirect('shipping_addresses:shipping_addresses')
 
+        if self.get_object().has_orders():
+            return redirect('shipping_addresses:shipping_addresses')
+
         if request.user.id != self.get_object().user_id:
             return redirect('carts:cart')
         return super(ShippingAddressDeleteview, self).dispatch(request, *args, **kwargs)
+
+        
 
 @login_required(login_url='login')
 def default(request, pk):
@@ -80,6 +90,16 @@ def create(request):
         shipping_address.default = not ShippingAddress.objects.filter(user=request.user).exists()
 
         shipping_address.save()
+           
+
+        if request.GET.get('next'):
+             if request.GET['next'] == reverse('orders:address'):
+                cart = get_or_create_cart(request)
+                order = get_or_create_order(cart, request)
+
+                order.update_shipping_address(shipping_address)
+
+                return HttpResponseRedirect(request.GET['next'])
 
         messages.success(request, 'Dirección creada correctamente')
         return redirect('shipping_addresses:shipping_addresses')
