@@ -36,7 +36,9 @@ urlpatterns = [
     path('users/page-user/', views.user, name='user'),
     path('users/register/', views.registrar_usuario, name='registrar'),
     path('cart/', include('carts.urls')),
-    path('product-detail/', include('products.urls'))
+    path('product-detail/', include('products.urls')),
+    path('orden/', include('orders.urls')),
+    path('direcciones/', include('shipping_addresses.urls'))
 ]#llaves
 
 if settings.DEBUG:

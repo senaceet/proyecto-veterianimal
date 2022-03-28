@@ -1,5 +1,6 @@
 {% load static %}
 {% url 'carts:cart' as cart %}
+{% url 'shipping_addresses:shipping_addresses' as shipping_addresses %}
 <header>
     <!-- Header desktop -->
     <div class="container-menu-desktop">
@@ -38,6 +39,10 @@
 
                         <li>
                             <a href="{% url 'user' %}">Perfil</a>
+                        </li>
+
+                        <li class="{% if request.path == shipping_addresses %}active{% endif %}">
+                            <a href="{{shipping_addresses}}">Mis direcciones</a>
                         </li>
 
                         <li>

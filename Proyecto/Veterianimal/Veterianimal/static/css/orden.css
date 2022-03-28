@@ -1,0 +1,44 @@
+
+#datosPRoveedor{
+	border-top-style: none;
+	
+}
+section > div{
+	border-color: rgb(0, 51, 102);
+	border-width: 1px;
+	border-top-style: none;
+
+}
+
+#datosPRoveedor P{
+	
+	border-bottom-style: groove;
+	border-color: rgb(0, 51, 102);
+	border-width: 1px;
+}
+
+footer > div{
+	border-color: rgb(0, 51, 102);
+	border-width: 1px;
+
+}
+#sello{
+	height: 120px;
+	width: 80%;
+	border: 3px groove rgb(0, 51, 102);
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 60px;
+}
+
+#ordenCompra{
+	background-color: #f1f1f1;
+}
+
+.corrigeBotonGuardado{
+	margin-top: 45px;
+}
+#ordenCompra > footer:last-child{
+	
+	margin-top: 100px;}

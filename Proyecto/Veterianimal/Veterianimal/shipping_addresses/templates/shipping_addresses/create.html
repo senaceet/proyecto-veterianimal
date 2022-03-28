@@ -1,0 +1,19 @@
+{% extends 'base_lo.html' %}
+
+{% block content %}
+<section class="material-half-bg">
+    <div class="cover"></div>
+  </section>
+  <section class="login-content">
+    <div class="logo">
+      <h1>Nueva Dirección</h1>
+    </div>
+    <div class="login-box">
+        {% csrf_token %}
+        
+        {% include 'shipping_addresses/snippets/form.html' %}
+
+     
+    </div>
+  </section>
+{% endblock  %}

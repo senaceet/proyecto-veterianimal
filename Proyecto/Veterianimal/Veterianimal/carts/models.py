@@ -24,6 +24,10 @@ class Cart (models.Model):
         self.update_subtotal()
         self.update_total()
 
+        if self.order:
+            self.order.update_total()
+
+
     def  update_subtotal(self):
         self.subtotal = sum([ 
             cp.quantity * cp.product.price for cp in self.products_related()

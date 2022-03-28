@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+{% block breadcrumb %}
+	{% include 'orders/snippets/breadcrum.html' %}
+{% endblock %}
+{% block title %}Orden{% endblock %}
+{% load static %}
+{% block css%}
+	<link rel="stylesheet" href="{% static 'css/orden.css' %}">
+{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/orden.css' %}">
+<!-- Latest compiled and minified CSS -->
+<script type="text/javascript" src="js/jquery-1.12.3.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+	crossorigin="anonymous">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+	crossorigin="anonymous"></script>
+
+
+    <div class="container">
+        <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+            <span class="stext-109 cl4">
+                Productos
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </span>
+
+            <a class="stext-109 cl8 hov-cl1 trans-04">
+                Dirección
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+
+            <a class="stext-109 cl8 hov-cl1 trans-04">
+                Pago
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+            
+            <a class="stext-109 cl8 hov-cl1 trans-04">
+                Confirmación
+            </a>
+
+        </div>
+    </div>
+<div class="container">
+    <br><br><br><br>
+	<!-- Orden de compra -->
+	<div id="ordenCompra">
+		<header>
+			
+            
+
+			<div class="container">
+				<div class="col-xs-3 col-md-3">
+					<img src="{% static 'imagenes/Veterianimal.png' %}" alt="IMG-LOGO" width="230px" height="230px"> 
+                </div>  
+				<h4><b>Datos de usuario</b></h4>
+                <div>
+					<p id="id_orden"><b>Orden de compra #:</b> 1</p>
+				</div>
+
+				<p id="fecha"><b>Fecha:</b> 26/03/2022</p>
+
+				<div class="col-xs-10 col-md-10"> <br>
+					<h4><b>VETERINARIA A&D Y SPA CANINO</b></h4>
+				</div>
+                <div class="row">
+					
+
+                <p><b>Comprador:</b> </p><center>{{ user.username }}</center>
+				
+				</div>
+
+					
+				
+ 
+                    <p><b>Ciudad:</b> Bogotá D.C.</p>
+				</div>
+			</div>
+            <br>
+			<div class="container" id="datosPRoveedor">
+				<div class="col-xs-12 col-md-12">
+					<h4><b>Datos del proveedor</b></h4>
+					<p id ="nombre_proveedor"><b>Nombre:</b> Héctor David Hernández García </p>
+					<p><b>Dirección:</b>Cll 64 # 23 A 10 Sur <br>
+					<p id ="telefono"><b>Telefono:</b> (601)7820524</p>
+					<p id="email"><b>Email:</b> vetrinarioayd@gmail.com</p>
+
+				</div>
+			</div>
+		</header>
+		<!-- Cuerpo -->
+        <div class = "container">
+            <div class="card"> 
+            {% for product in cart.products.all %}
+                {%include 'orders/snippets/product.html' %}
+            {% endfor %}
+            </div>
+
+        </div>
+        </div>
+		<div class="col">	
+			{% include 'orders/snippets/resume.html' %}
+		</div>
+        </div>
+		</section>
+	<br>
+{% endblock %}

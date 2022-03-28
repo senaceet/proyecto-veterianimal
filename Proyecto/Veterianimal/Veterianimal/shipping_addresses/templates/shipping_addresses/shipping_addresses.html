@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block address %}
+    <section class="bg0 p-t-23 p-b-140">
+        <div class="container">
+            <div class="p-b-10">
+                <h3 class="ltext-103 cl5">
+                    <br>
+                    <br>  
+                Mis direcciones
+                </h3>
+            </div>
+            <a href="{% url 'shipping_addresses:create' %}">Añadir Dirección </a>  
+        </div>
+    </section>
+{% endblock  %}
