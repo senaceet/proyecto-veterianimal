@@ -21,18 +21,18 @@ class ShippingAddressForm(ModelForm):
         super().__init__(*args, **kwargs)
 
         self.fields['line1'].widget.attrs.update({
-            'class':'form-group',
+            'class': 'form-group',
             'class': 'form-control',
         })
         self.fields['line2'].widget.attrs.update({
-            'class':'form-group',
+            'class': 'form-group',
             'class': 'form-control',
         })
         self.fields['city'].widget.attrs.update({
-            'class':'form-group',
+            'class': 'form-group',
             'class': 'form-control',
         })
         self.fields['reference'].widget.attrs.update({
-            'class':'form-group',
+            'class': 'form-group',
             'class': 'form-control',
         })

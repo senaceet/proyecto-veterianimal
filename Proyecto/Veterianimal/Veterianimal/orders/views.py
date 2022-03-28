@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from .utils import get_or_create_order
 from carts.utils import get_or_create_cart
-from orders.models import Order
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.

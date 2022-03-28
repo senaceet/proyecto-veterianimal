@@ -38,7 +38,6 @@ def registrar_usuario(request):
             name = form.cleaned_data.get('name'),
             password = form.cleaned_data.get('password'),
             id_doc = form.cleaned_data.get('id_doc'),
-            address = form.cleaned_data.get('adress'),
             documentType = form.cleaned_data.get('document'),
             image = form.cleaned_data.get('image')
             )

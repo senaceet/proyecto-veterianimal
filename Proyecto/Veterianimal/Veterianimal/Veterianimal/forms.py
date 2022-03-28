@@ -38,14 +38,6 @@ class RegisterForm(forms.Form):
                                 'placeholder':'Número de documento'
                             }
                         ) )
-    adress = forms.CharField(required=True, min_length=10, max_length=25,
-                            widget=forms.TextInput(
-                            attrs={
-                                'class':'form-group',
-                                'class':'form-control',
-                                'placeholder':'Dirección de Residencia',   
-                            }
-                         ) )
     name = forms.CharField(required=True, max_length=30, min_length=5, 
                         widget=forms.TextInput(
                             attrs={

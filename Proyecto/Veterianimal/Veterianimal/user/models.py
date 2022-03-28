@@ -11,12 +11,18 @@ from modelos.models import DocumentType
 class User_web(AbstractUser):
     id_doc = models.PositiveBigIntegerField (verbose_name='Identificación', null=True, unique=True)
     name = models.CharField(verbose_name='nombre', max_length=30, null=False)
-    address = models.CharField (verbose_name='Dirección', max_length=50)
     image = models.ImageField(upload_to='user/media', default='user/default.png' )
     documentType = models.ForeignKey (DocumentType, null=True,on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.username
+
+    @property
+    def shipping_address(self):
+        return self.shippingaddress_set.filter(default=True).first()
+
+    def has_shipping_address(self):
+        return self.shipping_address is not None
     
     class Meta:
         verbose_name = 'Usuario'
