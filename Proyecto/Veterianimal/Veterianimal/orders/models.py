@@ -6,13 +6,8 @@ from user.models import User_web
 from carts.models import Cart
 from shipping_addresses.models import ShippingAddress
 
-class OrderStatus(Enum):
-    CREATED = 'CREATED'
-    PAYED = 'PAYED'
-    COMPLETED = 'COMPLETED'
-    CANCELED = 'CANCELED'
-
-choices = [ (tag, tag.value) for tag in OrderStatus ]
+from .common import OrderStatus
+from .common import choices
 
 
 # Create your models here.
@@ -43,6 +38,14 @@ class Order (models.Model):
         self.shipping_address = shipping_address
         self.save()
 
+    def cancel(self):
+        self.status = OrderStatus.CANCELED
+        self.save()  
+
+    def complete(self):
+        self.status = OrderStatus.COMPLETED
+        self.save()    
+
     def get_total(self):
         return self.cart.total + self.shipping_total
 
@@ -57,13 +60,8 @@ def set_order_id (sender, instance, *args, **kwargs):
 def set_total (sender, instance, *args, **kwargs):
     instance.total = instance.get_total()
 
-def cancel(self):
-    self.status = OrderStatus.CANCELED
-    self.save()
 
-def complete(self):
-    self.status = OrderStatus.COMPLETED
-    self.save()    
+  
 
 pre_save.connect(set_order_id, sender=Order)
 pre_save.connect(set_total, sender=Order)

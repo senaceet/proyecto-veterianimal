@@ -3,6 +3,7 @@ import uuid
 from django.db import models
 from Veterianimal import settings 
 from products.models import Product
+from orders.common import OrderStatus
 from django.db.models.signals import pre_save
 from django.db.models.signals import post_save
 from django.db.models.signals import m2m_changed
@@ -42,6 +43,9 @@ class Cart (models.Model):
 
     def products_related(self):
         return self.cartproducts_set.select_related('product')
+
+    def order(self):
+        return self.order_set.filter(status=OrderStatus.CREATED).first()
 
     class Meta:
         verbose_name = 'Carrito de compra'

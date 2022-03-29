@@ -1,3 +1,4 @@
+from msilib.schema import ListView
 from django.shortcuts import render
 from django.shortcuts import redirect
 from carts.models import Cart
@@ -10,6 +11,17 @@ from shipping_addresses.views import ShippingAddressListView
 from .utils import get_or_create_order
 from carts.utils import get_or_create_cart
 from django.contrib.auth.decorators import login_required
+from .mails import Mail
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.list import ListView
+from django.db.models.query import EmptyQuerySet
+
+class OrderListView(LoginRequiredMixin, ListView):
+    login_url = 'login'
+    template_name = 'orders/orders.html'
+
+    def get_queryset(self):
+        return self.request.user.orders_completed()
 
 # Create your views here.
 @login_required(login_url='login')
@@ -28,7 +40,7 @@ def address(request):
     order = get_or_create_order(cart, request)
 
     shipping_address = order.get_or_set_shipping_address()
-    can_choose_address = request.user.shippingaddress_set.count() > 1
+    can_choose_address = request.user.shippingaddress_set.all()
 
     return render(request, 'orders/address.html', {
         'cart': cart,
@@ -39,7 +51,7 @@ def address(request):
 
 @login_required(login_url='login')
 def select_address(request):
-    shipping_addresses = request.user.shippingaddress_set.all()
+    shipping_addresses = request.user.addresses
 
     return render(request, 'orders/select_address.html', {
         'shipping_addresses': shipping_addresses
@@ -88,6 +100,8 @@ def cancel(request):
 
     return redirect ('product')
 
+    
+
 @login_required(login_url='login')
 def complete(request):
     cart = get_or_create_cart(request)
@@ -97,9 +111,10 @@ def complete(request):
         return redirect('carts:cart')
 
     order.complete()
+    #Mail.send_complete_order(order, request.user)
 
     destroy_cart(request)
     destroy_order(request)
 
-    messages.success(request, 'Compra completada exitosamente')
+    #messages.success(request, 'Compra completada exitosamente')
     return redirect ('index')

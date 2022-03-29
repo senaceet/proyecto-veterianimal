@@ -5,6 +5,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy 
 from modelos.models import DocumentType
+from orders.common import OrderStatus
 
 # Create your models here.
 
@@ -23,6 +24,15 @@ class User_web(AbstractUser):
 
     def has_shipping_address(self):
         return self.shipping_address is not None
+
+    def orders_completed(self):
+        return self.order_set.filter(status=OrderStatus.COMPLETED).order_by('-id')
+
+    def has_shipping_addresses(self):
+        return self.shippingaddress_set.exists()
+
+    def addresses(self):
+        return self.shippingaddress_set.all()
     
     class Meta:
         verbose_name = 'Usuario'
