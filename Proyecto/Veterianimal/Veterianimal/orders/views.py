@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from carts.models import Cart
 from .models import ShippingAddress
+from .utils import destroy_order
+from carts.utils import destroy_cart
 from django.shortcuts import get_object_or_404
-
+from pyexpat.errors import messages
 from shipping_addresses.views import ShippingAddressListView
 from .utils import get_or_create_order
 from carts.utils import get_or_create_cart
@@ -55,3 +57,49 @@ def check_address(request, pk):
     order.update_shipping_address(shipping_address)
 
     return redirect('orders:address')
+
+
+@login_required(login_url='login')
+def confirm(request):
+    cart = get_or_create_cart(request)
+    order = get_or_create_order(cart, request)
+    shipping_address = order.shipping_address
+    if shipping_address is None:
+        return redirect('orders:address')
+
+    return render(request, 'orders/snippets/confirm.html', {
+        'cart': cart,
+        'order': order,
+        'shipping_address': shipping_address
+    })
+
+@login_required(login_url='login')
+def cancel(request):
+    cart = get_or_create_cart(request)
+    order = get_or_create_order(cart, request)
+
+    if request.user.id != order.user_id:
+        return redirect('carts:cart')
+
+    order.cancel()
+
+    destroy_cart(request)
+    destroy_order(request)
+
+    return redirect ('product')
+
+@login_required(login_url='login')
+def complete(request):
+    cart = get_or_create_cart(request)
+    order = get_or_create_order(cart, request)
+
+    if request.user.id != order.user_id:
+        return redirect('carts:cart')
+
+    order.complete()
+
+    destroy_cart(request)
+    destroy_order(request)
+
+    messages.success(request, 'Compra completada exitosamente')
+    return redirect ('index')

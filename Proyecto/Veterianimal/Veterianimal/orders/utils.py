@@ -11,3 +11,6 @@ def get_or_create_order(cart, request):
         request.session['order_id'] = order.order_id
 
     return order
+
+def destroy_order(request):
+    request.session['order_id'] = None

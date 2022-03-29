@@ -57,5 +57,13 @@ def set_order_id (sender, instance, *args, **kwargs):
 def set_total (sender, instance, *args, **kwargs):
     instance.total = instance.get_total()
 
+def cancel(self):
+    self.status = OrderStatus.CANCELED
+    self.save()
+
+def complete(self):
+    self.status = OrderStatus.COMPLETED
+    self.save()    
+
 pre_save.connect(set_order_id, sender=Order)
 pre_save.connect(set_total, sender=Order)
