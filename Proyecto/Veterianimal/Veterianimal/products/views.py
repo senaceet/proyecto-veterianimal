@@ -77,7 +77,7 @@ class ProductServListView(ListView):
     template_name = 'products/product_ser.html'
 
     def get_queryset(self):
-        filter = Q(category__title__icontains="Servicio")
+        filter = Q(category__title__icontains="Juguetes")
         return Product.objects.filter(filter)
 
     def get_context_data(self, **kwargs):

@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 <br><br>
 {% block content %}
-    <div class="col">
-        <div class="h3"><br><br><br><br>
-            Mis pedidos
-        </div>
+    <div class="col mt-5">
+        <h4 class="mtext-109 cl2 p-b-30 ">
+            <br>
+            <br>
+            <center>PEDIDOS RECIENTES</center>
+        </h4>
         <div class="">
             {% for order in object_list %}
             {% include 'orders/snippets/order.html' %}

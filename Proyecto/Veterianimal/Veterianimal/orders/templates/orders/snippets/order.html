@@ -5,7 +5,7 @@
 
             <div class="col">
                 <div class="text-uppercase">   
-                    Pedido Realizado
+                    <b>Pedido Realizado</b>
                 </div>
                 <div class="">
                     {{ order.created_at }}
@@ -14,16 +14,16 @@
 
             <div class="col-4">
                 <div class="text-uppercase">   
-                    Total
+                   <b> Total </b>
                     <div class="">
-                        {{ order.total | price_format }}
+                        {{ order.total | price_format }} COP
                     </div>
                 </div>
             </div>
 
             <div class="col-4">
                 <div class="text-uppercase">
-                    Envíado a
+                    <b>Envíado a</b>
                 </div>
                 <div class="">
                     {{ order.shipping_address }}
@@ -36,26 +36,26 @@
         {% for cp in order.cart.products_related %}
         {% with product=cp.product %}
             <div class="row">
-                <div class="col-4">
+                <div class="col-4 ">
                     {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="" width="60"  height="60">
+                    <img src="{{ product.image.url }}" alt="" width="130"  height="110">
                     {% endif %}
                 </div>
 
                 <div class="col-4">
                     <div>
-                        {{ product.tittle}}
+                        <b><a href="{% url 'product'%}">{{ product.name }}</a></b>
                     </div>
 
                     <div class="text-danger">
-                        {{ product.price | price_format }}
+                       <b>{{ product.price | price_format }}COP</b>
                     </div>
 
                 </div>
 
                 <div class="col-4">
                     <div>
-                        Cantidad
+                        <b>Cantidad</b>
                     </div>
 
                     <div>

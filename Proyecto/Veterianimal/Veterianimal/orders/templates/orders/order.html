@@ -55,7 +55,7 @@
 						<h4><b>Datos de usuario</b></h4>
 					<div class="mt-3">
 						<p id="id_orden"><b>Orden de compra #:</b> 1</p>
-						<p id="fecha"><b>Fecha:</b> 29/03/2022</p>
+						<p id="fecha"><b>Fecha:</b> 31/03/2022</p>
 						<p><b>Comprador:</b> {{ user.username }} </p>
 						<p><b>Ciudad:</b> Bogotá D.C.</p>
 					</div>
@@ -89,6 +89,7 @@
 					<div class="col mb-4">
 						{% url 'orders:address' as next_url %}
 						{% include 'orders/snippets/resume.html' with next_url=next_url %}
+						
 					</div>
 			</div>
 
