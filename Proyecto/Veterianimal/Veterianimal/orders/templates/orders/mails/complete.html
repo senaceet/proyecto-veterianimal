@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orden completada</title>
 </head>
+
 <body>
-    <div class="">
-        <h3> Hola {{ user.username }} tu pedido ha sido enviado</h3>
-    </div>
+    <div class="card ml-5" style="width: 500px;">
+        <div class="card-body">
+            <center><h2 class="card-title"> Tu pedido fue correctamente enviado </h2></center>
+        </div>
+        <div class="card-text">
+            <center><p> Hola {{ user.username }} tu pedido ha sido enviado</p></center>
+            <center><p> Recuerda que pudes visitar nuestra página para todos tus pedidos realizados</p></center>
+        </div>
+        <center><button class="btn btn-primary btn-block mt-3 " ><i class="fa fa-sign-in fa-lg fa-fw"></i>
+            <a href="{{ next_url }}" target="_blank">Mis pedidos</a>
+        </button></center>
+    </div>  
 </body>
+
 </html>

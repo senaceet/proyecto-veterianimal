@@ -111,7 +111,7 @@ def complete(request):
         return redirect('carts:cart')
 
     order.complete()
-    #Mail.send_complete_order(order, request.user)
+    Mail.send_complete_order(order, request.user)
 
     destroy_cart(request)
     destroy_order(request)

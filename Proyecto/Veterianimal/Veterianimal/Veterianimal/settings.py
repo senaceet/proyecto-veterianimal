@@ -132,8 +132,8 @@ from decouple import config
 
 EMAIL_HOST = 'smtp.googlemail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'jecepeda29@misena.edu.co'
-EMAIL_HOST_PASSWORD = ('USER_MAIL_PASSWORD') #Env
+EMAIL_HOST_USER = 'veterianimal85@gmail.com'
+EMAIL_HOST_PASSWORD = config('USER_EMAIL_PASSWORD') #Env 
 EMAIL_USE_TLS = True
 
 
